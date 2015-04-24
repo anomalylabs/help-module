@@ -13,4 +13,13 @@ use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
 class CategoryTableBuilder extends TableBuilder
 {
 
+    /**
+     * The table options.
+     *
+     * @var array
+     */
+    protected $options = [
+        'sortable' => true
+    ];
+
 }

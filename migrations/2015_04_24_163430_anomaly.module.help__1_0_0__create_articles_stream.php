@@ -19,6 +19,7 @@ class AnomalyModuleHelp_1_0_0_CreateArticlesStream extends Migration
      */
     protected $stream = [
         'slug'         => 'articles',
+        'title_column' => 'title',
         'translatable' => true,
         'locked'       => true
     ];
@@ -47,6 +48,7 @@ class AnomalyModuleHelp_1_0_0_CreateArticlesStream extends Migration
         'section' => [
             'required' => true
         ],
+        'enabled',
         'promoted',
         'comments',
         'keywords'

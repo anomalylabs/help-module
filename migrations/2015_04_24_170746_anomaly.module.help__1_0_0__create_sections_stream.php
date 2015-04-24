@@ -19,6 +19,7 @@ class AnomalyModuleHelp_1_0_0_CreateSectionsStream extends Migration
      */
     protected $stream = [
         'slug'         => 'sections',
+        'title_column' => 'name',
         'translatable' => true,
         'locked'       => true
     ];

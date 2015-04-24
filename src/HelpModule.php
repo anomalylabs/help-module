@@ -20,15 +20,25 @@ class HelpModule extends Module
      */
     protected $icon = 'circle-question-mark';
 
+    /**
+     * The module sections.
+     *
+     * @var array
+     */
     protected $sections = [
-        'articles'  => [
+        'articles'   => [
             'buttons' => [
                 'new_article'
             ]
         ],
-        'questions' => [
+        'categories' => [
             'buttons' => [
-                'new_question'
+                'new_category'
+            ]
+        ],
+        'sections'   => [
+            'buttons' => [
+                'new_section'
             ]
         ]
     ];

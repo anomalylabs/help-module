@@ -36,8 +36,12 @@ class HelpModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $bindings = [
-        'Anomaly\HelpModule\Article\ArticleRepository'               => 'Anomaly\HelpModule\Article\ArticleRepository',
-        'Anomaly\Streams\Platform\Model\Help\HelpArticlesEntryModel' => 'Anomaly\HelpModule\Article\ArticleRepository'
+        'Anomaly\HelpModule\Article\ArticleRepository'                 => 'Anomaly\HelpModule\Article\ArticleRepository',
+        'Anomaly\Streams\Platform\Model\Help\HelpArticlesEntryModel'   => 'Anomaly\HelpModule\Article\ArticleRepository',
+        'Anomaly\HelpModule\Category\CategoryRepository'               => 'Anomaly\HelpModule\Category\CategoryRepository',
+        'Anomaly\Streams\Platform\Model\Help\HelpCategoriesEntryModel' => 'Anomaly\HelpModule\Category\CategoryRepository',
+        'Anomaly\HelpModule\Section\SectionRepository'                 => 'Anomaly\HelpModule\Section\SectionRepository',
+        'Anomaly\Streams\Platform\Model\Help\HelpSectionsEntryModel'   => 'Anomaly\HelpModule\Section\SectionRepository'
     ];
 
     /**

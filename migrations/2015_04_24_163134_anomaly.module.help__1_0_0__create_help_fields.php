@@ -24,9 +24,10 @@ class AnomalyModuleHelp_1_0_0_CreateHelpFields extends Migration
         'section'     => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
-                'Anomaly\HelpModule\Section\SectionModel'
+                'related' => 'Anomaly\HelpModule\Section\SectionModel'
             ]
         ],
+        'enabled'     => 'anomaly.field_type.boolean',
         'promoted'    => 'anomaly.field_type.boolean',
         'comments'    => 'anomaly.field_type.boolean',
         'keywords'    => 'anomaly.field_type.tags',
@@ -35,7 +36,7 @@ class AnomalyModuleHelp_1_0_0_CreateHelpFields extends Migration
         'category'    => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
-                'Anomaly\HelpModule\Category\CategoryModel'
+                'related' => 'Anomaly\HelpModule\Category\CategoryModel'
             ]
         ],
     ];

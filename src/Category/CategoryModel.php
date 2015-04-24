@@ -1,7 +1,7 @@
 <?php namespace Anomaly\HelpModule\Category;
 
 use Anomaly\HelpModule\Category\Contract\CategoryInterface;
-use Anomaly\Streams\Platform\Model\Help\HelpCategorysEntryModel;
+use Anomaly\Streams\Platform\Model\Help\HelpCategoriesEntryModel;
 
 /**
  * Class CategoryModel
@@ -11,7 +11,7 @@ use Anomaly\Streams\Platform\Model\Help\HelpCategorysEntryModel;
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\HelpModule\Category
  */
-class CategoryModel extends HelpCategorysEntryModel implements CategoryInterface
+class CategoryModel extends HelpCategoriesEntryModel implements CategoryInterface
 {
 
 }
