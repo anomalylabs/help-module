@@ -3,13 +3,13 @@
 use Anomaly\Streams\Platform\Database\Migration\Migration;
 
 /**
- * Class AnomalyModuleHelp_1_0_0_CreateSectionsStream
+ * Class AnomalyModuleHelpCreateSectionsStream
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  */
-class AnomalyModuleHelp_1_0_0_CreateSectionsStream extends Migration
+class AnomalyModuleHelpCreateSectionsStream extends Migration
 {
 
     /**
@@ -21,7 +21,6 @@ class AnomalyModuleHelp_1_0_0_CreateSectionsStream extends Migration
         'slug'         => 'sections',
         'title_column' => 'name',
         'translatable' => true,
-        'locked'       => true
     ];
 
     /**
@@ -33,21 +32,30 @@ class AnomalyModuleHelp_1_0_0_CreateSectionsStream extends Migration
         'name'        => [
             'translatable' => true,
             'required'     => true,
-            'unique'       => true
+            'unique'       => true,
         ],
         'slug'        => [
             'required' => true,
             'unique'   => true,
             'config'   => [
-                'slugify' => 'name'
-            ]
+                'slugify' => 'name',
+            ],
         ],
         'description' => [
-            'translatable' => true
+            'translatable' => true,
         ],
         'category'    => [
-            'required' => true
-        ]
+            'required' => true,
+        ],
+        'meta_title'       => [
+            'translatable' => true,
+        ],
+        'meta_description' => [
+            'translatable' => true,
+        ],
+        'meta_keywords'    => [
+            'translatable' => true,
+        ],
     ];
 
 }

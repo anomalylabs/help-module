@@ -2,7 +2,14 @@
 
 use Anomaly\Streams\Platform\Database\Migration\Migration;
 
-class AnomalyModuleHelp_1_0_0_CreateCategoriesStream extends Migration
+/**
+ * Class AnomalyModuleHelpCreateCategoriesStream
+ *
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
+ */
+class AnomalyModuleHelpCreateCategoriesStream extends Migration
 {
 
     /**
@@ -14,7 +21,6 @@ class AnomalyModuleHelp_1_0_0_CreateCategoriesStream extends Migration
         'slug'         => 'categories',
         'title_column' => 'name',
         'translatable' => true,
-        'locked'       => true
     ];
 
     /**
@@ -26,18 +32,27 @@ class AnomalyModuleHelp_1_0_0_CreateCategoriesStream extends Migration
         'name'        => [
             'translatable' => true,
             'required'     => true,
-            'unique'       => true
+            'unique'       => true,
         ],
         'slug'        => [
             'required' => true,
             'unique'   => true,
             'config'   => [
-                'slugify' => 'name'
-            ]
+                'slugify' => 'name',
+            ],
         ],
         'description' => [
-            'translatable' => true
-        ]
+            'translatable' => true,
+        ],
+        'meta_title'       => [
+            'translatable' => true,
+        ],
+        'meta_description' => [
+            'translatable' => true,
+        ],
+        'meta_keywords'    => [
+            'translatable' => true,
+        ],
     ];
 
 }

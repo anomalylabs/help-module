@@ -1,0 +1,7 @@
+<ul class="list-unstyled">
+    {% for article in articles %}
+
+        <li>{{ html_link(article.route('view'), article.title) }}</li>
+
+    {% endfor %}
+</ul>

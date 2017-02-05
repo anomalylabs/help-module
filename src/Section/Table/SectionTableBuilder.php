@@ -5,9 +5,9 @@ use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
 /**
  * Class SectionTableBuilder
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\HelpModule\Section\Table
  */
 class SectionTableBuilder extends TableBuilder
@@ -20,16 +20,16 @@ class SectionTableBuilder extends TableBuilder
      */
     protected $columns = [
         'name',
-        'category'
+        'category',
     ];
 
     /**
-     * The table options.
+     * The table buttons.
      *
      * @var array
      */
-    protected $options = [
-        'sortable' => true
+    protected $buttons = [
+        'edit',
+        'view',
     ];
-
 }

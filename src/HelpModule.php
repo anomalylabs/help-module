@@ -5,9 +5,9 @@ use Anomaly\Streams\Platform\Addon\Module\Module;
 /**
  * Class HelpModule
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\HelpModule
  */
 class HelpModule extends Module
@@ -18,7 +18,7 @@ class HelpModule extends Module
      *
      * @var string
      */
-    protected $icon = 'circle-question-mark';
+    protected $icon = 'glyphicons glyphicons-book-open';
 
     /**
      * The module sections.
@@ -28,19 +28,28 @@ class HelpModule extends Module
     protected $sections = [
         'articles'   => [
             'buttons' => [
-                'new_article'
-            ]
-        ],
-        'categories' => [
-            'buttons' => [
-                'new_category'
-            ]
+                'new_article',
+            ],
         ],
         'sections'   => [
             'buttons' => [
-                'new_section'
-            ]
-        ]
+                'new_section',
+            ],
+        ],
+        'categories' => [
+            'buttons' => [
+                'new_category',
+            ],
+        ],
+        'fields'     => [
+            'buttons' => [
+                'new_field' => [
+                    'data-toggle' => 'modal',
+                    'data-target' => '#modal',
+                    'href'        => 'admin/help/fields/choose',
+                ],
+            ],
+        ],
     ];
 
 }

@@ -1,50 +1,56 @@
 <?php
 
 return [
-    'title'       => [
+    'title'            => [
         'name'         => 'Title',
         'placeholder'  => config('streams.app.name') . ' 101: Introduction',
-        'instructions' => 'What is the title of the article?'
+        'instructions' => 'What is the title of the article?',
     ],
-    'slug'        => [
+    'slug'             => [
         'name'         => 'Slug',
         'placeholder'  => str_slug(config('streams.app.name') . ' 101: Introduction'),
-        'instructions' => 'What is the title of the article?'
+        'instructions' => 'What is the title of the article?',
     ],
-    'content'     => [
+    'content'          => [
         'name'         => 'Content',
-        'instructions' => 'Write the article content below.'
+        'instructions' => 'Write the article content below.',
     ],
-    'section'     => [
+    'section'          => [
         'name'         => 'Section',
         'placeholder'  => 'Please choose a section...',
-        'instructions' => 'What section should the article display in?'
+        'instructions' => 'What section should the article display in?',
     ],
-    'enabled'     => [
+    'enabled'          => [
         'name'         => 'Enabled',
-        'instructions' => 'Items will only display if enabled.'
+        'instructions' => 'Items will only display if enabled.',
     ],
-    'promoted'    => [
-        'name'         => 'Promoted',
-        'label'        => 'Promote this article?',
-        'instructions' => 'Promoted articles display at the top.'
+    'tags'             => [
+        'name'         => 'Tags',
+        'instructions' => 'Tags make it easier for you to organize related articles.',
     ],
-    'comments'    => [
-        'name'         => 'Comments',
-        'label'        => 'Enable comments for this article?',
-        'instructions' => 'Comments help engage the community.'
-    ],
-    'keywords'    => [
-        'name'         => 'Keywords',
-        'instructions' => 'Keywords are used for searching help articles.'
-    ],
-    'name'        => [
+    'name'             => [
         'name'         => 'Name',
         'placeholder'  => 'Introduction',
-        'instructions' => 'What is the name of this category?'
+        'instructions' => 'What is the name of this category?',
     ],
-    'description' => [
+    'description'      => [
         'name'         => 'Description',
-        'instructions' => 'Briefly describe this category.'
-    ]
+        'instructions' => 'Briefly describe this category.',
+    ],
+    'category'         => [
+        'name' => 'Category',
+    ],
+    'meta_title'       => [
+        'name'         => 'Meta Title',
+        'instructions' => 'Specify the SEO title.',
+        'warning'      => 'The title will be used by default.',
+    ],
+    'meta_description' => [
+        'name'         => 'Meta Description',
+        'instructions' => 'Specify the SEO description.',
+    ],
+    'meta_keywords'    => [
+        'name'         => 'Meta Keywords',
+        'instructions' => 'Specify the SEO keywords.',
+    ],
 ];

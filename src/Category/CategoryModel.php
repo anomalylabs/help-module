@@ -1,17 +1,38 @@
 <?php namespace Anomaly\HelpModule\Category;
 
 use Anomaly\HelpModule\Category\Contract\CategoryInterface;
+use Anomaly\HelpModule\Section\SectionCollection;
 use Anomaly\Streams\Platform\Model\Help\HelpCategoriesEntryModel;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class CategoryModel
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\HelpModule\Category
  */
 class CategoryModel extends HelpCategoriesEntryModel implements CategoryInterface
 {
 
+    /**
+     * Get the related sections.
+     *
+     * @return SectionCollection
+     */
+    public function getSections()
+    {
+        return $this->sections;
+    }
+
+    /**
+     * Return the sections relation.
+     *
+     * @return HasMany
+     */
+    public function sections()
+    {
+        return $this->hasMany('Anomaly\HelpModule\Section\SectionModel', 'category_id');
+    }
 }

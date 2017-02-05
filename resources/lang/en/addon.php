@@ -1,11 +1,7 @@
 <?php
 
 return [
-    'name'        => 'Help',
-    'description' => 'A help article and question management module.',
-    'section'     => [
-        'articles'   => 'Articles',
-        'categories' => 'Categories',
-        'sections'   => 'Sections'
-    ]
+    'title'       => 'Help',
+    'name'        => 'Help Module',
+    'description' => 'A help article and knowledge base management module.',
 ];

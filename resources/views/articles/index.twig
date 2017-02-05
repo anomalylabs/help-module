@@ -1,0 +1,26 @@
+{% extends layout('help') %}
+
+{% block content %}
+    <div id="help">
+        <div class="container">
+
+            <header class="jumbotron text-center">
+
+                <h1>{{ trans('anomaly.module.help::message.help_center') }}</h1>
+
+                <br>
+                <br>
+
+                <form>
+                    <input name="q" class="form-control" value="{{ request_get('q') }}" placeholder="Search...">
+                </form>
+
+            </header>
+
+            {% set categories = entries('help', 'categories').get() %}
+
+            {% include "anomaly.module.help::categories/partials/categories" with {"categories": categories} %}
+
+        </div>
+    </div>
+{% endblock %}

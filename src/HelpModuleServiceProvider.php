@@ -1,13 +1,25 @@
 <?php namespace Anomaly\HelpModule;
 
+use Anomaly\HelpModule\Article\ArticleModel;
+use Anomaly\HelpModule\Article\ArticleRepository;
+use Anomaly\HelpModule\Article\Contract\ArticleRepositoryInterface;
+use Anomaly\HelpModule\Category\CategoryModel;
+use Anomaly\HelpModule\Category\CategoryRepository;
+use Anomaly\HelpModule\Category\Contract\CategoryRepositoryInterface;
+use Anomaly\HelpModule\Section\Contract\SectionRepositoryInterface;
+use Anomaly\HelpModule\Section\SectionModel;
+use Anomaly\HelpModule\Section\SectionRepository;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Anomaly\Streams\Platform\Model\Help\HelpArticlesEntryModel;
+use Anomaly\Streams\Platform\Model\Help\HelpCategoriesEntryModel;
+use Anomaly\Streams\Platform\Model\Help\HelpSectionsEntryModel;
 
 /**
  * Class HelpModuleServiceProvider
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\HelpModule
  */
 class HelpModuleServiceProvider extends AddonServiceProvider
@@ -19,15 +31,36 @@ class HelpModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $routes = [
+        'help'                   => [
+            'as'   => 'anomaly.module.help::categories.index',
+            'uses' => 'Anomaly\HelpModule\Http\Controller\ArticlesController@index',
+        ],
+        'help/{slug}'            => [
+            'as'   => 'anomaly.module.help::articles.view',
+            'uses' => 'Anomaly\HelpModule\Http\Controller\ArticlesController@view',
+        ],
+        'help/categories/{slug}' => [
+            'as'   => 'anomaly.module.help::categories.view',
+            'uses' => 'Anomaly\HelpModule\Http\Controller\CategoriesController@view',
+        ],
+        'help/sections/{slug}'   => [
+            'as'   => 'anomaly.module.help::sections.view',
+            'uses' => 'Anomaly\HelpModule\Http\Controller\SectionsController@view',
+        ],
+
         'admin/help'                      => 'Anomaly\HelpModule\Http\Controller\Admin\ArticlesController@index',
         'admin/help/create'               => 'Anomaly\HelpModule\Http\Controller\Admin\ArticlesController@create',
         'admin/help/edit/{id}'            => 'Anomaly\HelpModule\Http\Controller\Admin\ArticlesController@edit',
+        'admin/help/sections'             => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@index',
+        'admin/help/sections/create'      => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@create',
+        'admin/help/sections/edit/{id}'   => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@edit',
         'admin/help/categories'           => 'Anomaly\HelpModule\Http\Controller\Admin\CategoriesController@index',
         'admin/help/categories/create'    => 'Anomaly\HelpModule\Http\Controller\Admin\CategoriesController@create',
         'admin/help/categories/edit/{id}' => 'Anomaly\HelpModule\Http\Controller\Admin\CategoriesController@edit',
-        'admin/help/sections'             => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@index',
-        'admin/help/sections/create'      => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@create',
-        'admin/help/sections/edit/{id}'   => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@edit'
+        'admin/help/fields'               => 'Anomaly\HelpModule\Http\Controller\Admin\FieldsController@index',
+        'admin/help/fields/choose'        => 'Anomaly\HelpModule\Http\Controller\Admin\FieldsController@choose',
+        'admin/help/fields/create'        => 'Anomaly\HelpModule\Http\Controller\Admin\FieldsController@create',
+        'admin/help/fields/edit/{id}'     => 'Anomaly\HelpModule\Http\Controller\Admin\FieldsController@edit',
     ];
 
     /**
@@ -36,12 +69,9 @@ class HelpModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $bindings = [
-        'Anomaly\HelpModule\Article\ArticleRepository'                 => 'Anomaly\HelpModule\Article\ArticleRepository',
-        'Anomaly\Streams\Platform\Model\Help\HelpArticlesEntryModel'   => 'Anomaly\HelpModule\Article\ArticleRepository',
-        'Anomaly\HelpModule\Category\CategoryRepository'               => 'Anomaly\HelpModule\Category\CategoryRepository',
-        'Anomaly\Streams\Platform\Model\Help\HelpCategoriesEntryModel' => 'Anomaly\HelpModule\Category\CategoryRepository',
-        'Anomaly\HelpModule\Section\SectionRepository'                 => 'Anomaly\HelpModule\Section\SectionRepository',
-        'Anomaly\Streams\Platform\Model\Help\HelpSectionsEntryModel'   => 'Anomaly\HelpModule\Section\SectionRepository'
+        HelpArticlesEntryModel::class   => ArticleModel::class,
+        HelpSectionsEntryModel::class   => SectionModel::class,
+        HelpCategoriesEntryModel::class => CategoryModel::class,
     ];
 
     /**
@@ -50,7 +80,9 @@ class HelpModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $singletons = [
-        'Anomaly\HelpModule\Article\Contract\ArticleRepositoryInterface' => 'Anomaly\HelpModule\Article\ArticleRepository'
+        ArticleRepositoryInterface::class  => ArticleRepository::class,
+        SectionRepositoryInterface::class  => SectionRepository::class,
+        CategoryRepositoryInterface::class => CategoryRepository::class,
     ];
 
 }

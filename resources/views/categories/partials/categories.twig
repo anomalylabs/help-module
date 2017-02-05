@@ -1,0 +1,11 @@
+{% for category in categories %}
+
+    <h2>
+        {{ category.name }}
+    </h2>
+
+    {% set sections = category.sections().get() %}
+
+    {% include "anomaly.module.help::sections/partials/sections" with {"sections": sections} %}
+
+{% endfor %}
