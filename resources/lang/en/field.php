@@ -53,4 +53,12 @@ return [
         'name'         => 'Meta Keywords',
         'instructions' => 'Specify the SEO keywords.',
     ],
+    'theme_layout'     => [
+        'name'         => 'Theme Layout',
+        'instructions' => 'Specify the theme layout to wrap the <strong>article layout</strong> with.',
+    ],
+    'layout'           => [
+        'name'         => 'Layout',
+        'instructions' => 'The layout is used for displaying the article\'s content.',
+    ],
 ];

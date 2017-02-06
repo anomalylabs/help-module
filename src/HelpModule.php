@@ -28,7 +28,11 @@ class HelpModule extends Module
     protected $sections = [
         'articles'   => [
             'buttons' => [
-                'new_article',
+                'new_article' => [
+                    'data-toggle' => 'modal',
+                    'data-target' => '#modal',
+                    'href'        => 'admin/help/choose',
+                ],
             ],
         ],
         'sections'   => [
@@ -41,12 +45,29 @@ class HelpModule extends Module
                 'new_category',
             ],
         ],
-        'fields'     => [
+        'types'      => [
             'buttons' => [
+                'new_type',
+            ],
+        ],
+        'fields'     => [
+            'buttons'  => [
                 'new_field' => [
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
                     'href'        => 'admin/help/fields/choose',
+                ],
+            ],
+            'sections' => [
+                'assignments' => [
+                    'href'    => 'admin/help/fields/assignments/{request.route.parameters.stream}',
+                    'buttons' => [
+                        'assign_fields' => [
+                            'data-toggle' => 'modal',
+                            'data-target' => '#modal',
+                            'href'        => 'admin/help/fields/assignments/{request.route.parameters.stream}/choose',
+                        ],
+                    ],
                 ],
             ],
         ],

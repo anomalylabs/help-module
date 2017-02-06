@@ -1,25 +1,15 @@
 <?php namespace Anomaly\HelpModule\Article\Table;
 
-use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
+use Anomaly\FormsModule\Entry\Table\EntryTableBuilder;
 
 /**
  * Class ArticleTableBuilder
  *
- * @link          http://pyrocms.com
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\HelpModule\Article\Table
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
-class ArticleTableBuilder extends TableBuilder
+class ArticleTableBuilder extends EntryTableBuilder
 {
 
-    /**
-     * The table buttons.
-     *
-     * @var array
-     */
-    protected $buttons = [
-        'edit',
-        'view',
-    ];
 }

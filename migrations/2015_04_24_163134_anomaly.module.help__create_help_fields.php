@@ -18,6 +18,7 @@ class AnomalyModuleHelpCreateHelpFields extends Migration
      * @var array
      */
     protected $fields = [
+        'str_id'           => 'anomaly.field_type.text',
         'title'            => 'anomaly.field_type.text',
         'slug'             => [
             'type'   => 'anomaly.field_type.slug',
@@ -25,7 +26,10 @@ class AnomalyModuleHelpCreateHelpFields extends Migration
                 'type' => '-',
             ],
         ],
-        'content'          => 'anomaly.field_type.wysiwyg',
+        'content'          => [
+            'type'   => 'anomaly.field_type.wysiwyg',
+            'locked' => 0, // Used with seeded pages.
+        ],
         'section'          => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
@@ -33,7 +37,12 @@ class AnomalyModuleHelpCreateHelpFields extends Migration
                 'related' => 'Anomaly\HelpModule\Section\SectionModel',
             ],
         ],
-        'enabled'          => 'anomaly.field_type.boolean',
+        'enabled'          => [
+            'type'   => 'anomaly.field_type.boolean',
+            'config' => [
+                'default_value' => true,
+            ],
+        ],
         'tags'             => 'anomaly.field_type.tags',
         'name'             => 'anomaly.field_type.text',
         'description'      => 'anomaly.field_type.textarea',
@@ -47,6 +56,19 @@ class AnomalyModuleHelpCreateHelpFields extends Migration
         'meta_title'       => 'anomaly.field_type.text',
         'meta_description' => 'anomaly.field_type.textarea',
         'meta_keywords'    => 'anomaly.field_type.tags',
+        'layout'           => [
+            'type'   => 'anomaly.field_type.editor',
+            'config' => [
+                'default_value' => '{{ article.content|raw }}',
+                'mode'          => 'twig',
+            ],
+        ],
+        'theme_layout'     => [
+            'type'   => 'anomaly.field_type.select',
+            'config' => [
+                'handler' => \Anomaly\SelectFieldType\Handler\Layouts::class,
+            ],
+        ],
     ];
 
 }

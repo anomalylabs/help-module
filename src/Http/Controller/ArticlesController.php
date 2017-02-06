@@ -1,5 +1,6 @@
 <?php namespace Anomaly\HelpModule\Http\Controller;
 
+use Anomaly\HelpModule\Article\Command\MakeArticleResponse;
 use Anomaly\HelpModule\Article\Contract\ArticleInterface;
 use Anomaly\HelpModule\Article\Contract\ArticleRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;

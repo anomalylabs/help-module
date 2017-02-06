@@ -1,16 +1,22 @@
 <?php
 
 return [
-    'articles'   => [
+    'articles'    => [
         'title' => 'Articles',
     ],
-    'sections'   => [
+    'sections'    => [
         'title' => 'Sections',
     ],
-    'categories' => [
+    'categories'  => [
         'title' => 'Categories',
     ],
-    'fields'     => [
+    'types'       => [
+        'title' => 'Types',
+    ],
+    'fields'      => [
         'title' => 'Fields',
+    ],
+    'assignments' => [
+        'title' => 'Assignments',
     ],
 ];
