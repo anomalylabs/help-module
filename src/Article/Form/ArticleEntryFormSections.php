@@ -29,7 +29,7 @@ class ArticleEntryFormSections
                         'article_section',
                     ],
                 ],
-                'fields'  => [
+                'example'  => [
                     'fields' => function (ArticleEntryFormBuilder $builder) {
                         return array_map(
                             function (FieldType $field) {

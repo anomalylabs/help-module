@@ -44,11 +44,13 @@ class AnomalyModuleHelpCreateArticlesStream extends Migration
                 'slugify' => 'title',
             ],
         ],
-        'content'          => [
-            'translatable' => true,
-            'required'     => true,
-        ],
         'section'          => [
+            'required' => true,
+        ],
+        'entry'            => [
+            'required' => true,
+        ],
+        'type'             => [
             'required' => true,
         ],
         'meta_title'       => [

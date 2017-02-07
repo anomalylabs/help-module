@@ -46,6 +46,13 @@ class AnomalyModuleHelpCreateHelpFields extends Migration
         'tags'             => 'anomaly.field_type.tags',
         'name'             => 'anomaly.field_type.text',
         'description'      => 'anomaly.field_type.textarea',
+        'entry'            => 'anomaly.field_type.polymorphic',
+        'type'             => [
+            'type'   => 'anomaly.field_type.relationship',
+            'config' => [
+                'related' => 'Anomaly\HelpModule\Type\TypeModel',
+            ],
+        ],
         'category'         => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [

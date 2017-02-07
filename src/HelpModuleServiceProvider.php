@@ -60,6 +60,7 @@ class HelpModuleServiceProvider extends AddonServiceProvider
         'admin/help/create'                                        => 'Anomaly\HelpModule\Http\Controller\Admin\ArticlesController@create',
         'admin/help/choose'                                        => 'Anomaly\HelpModule\Http\Controller\Admin\ArticlesController@choose',
         'admin/help/edit/{id}'                                     => 'Anomaly\HelpModule\Http\Controller\Admin\ArticlesController@edit',
+        'admin/help/view/{id}'                                     => 'Anomaly\HelpModule\Http\Controller\Admin\ArticlesController@view',
         'admin/help/sections'                                      => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@index',
         'admin/help/sections/create'                               => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@create',
         'admin/help/sections/edit/{id}'                            => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@edit',

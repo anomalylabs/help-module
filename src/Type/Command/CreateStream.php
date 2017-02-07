@@ -49,7 +49,7 @@ class CreateStream
                     'description' => $this->type->getDescription(),
                 ],
                 'slug'                              => $this->type->getSlug() . '_articles',
-                'namespace'                         => 'articles',
+                'namespace'                         => 'help',
                 'locked'                            => false,
                 'translatable'                      => true,
                 'trashable'                         => true,

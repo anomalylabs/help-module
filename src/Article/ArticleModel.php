@@ -36,7 +36,6 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
         'type',
         'entry',
         'translations',
-        'allowedRoles',
     ];
 
     /**
