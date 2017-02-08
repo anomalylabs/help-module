@@ -4,19 +4,13 @@
     <div id="help">
         <div class="container">
 
-            <header class="jumbotron text-center">
+            <h1>{{ section.title }}</h1>
 
-                <h1>{{ section.title }}</h1>
+            {% if section.description.value %}
+                <p>{{ section.description }}</p>
+            {% endif %}
 
-                {% if section.description.value %}
-
-                    <br>
-
-                    <p>{{ section.description }}</p>
-
-                {% endif %}
-
-            </header>
+            <hr>
 
             {% set articles = section.articles().get() %}
 

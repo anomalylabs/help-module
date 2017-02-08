@@ -4,7 +4,11 @@
     <div id="help">
         <div class="container">
 
-            {{ article.title }}
+            <h1>{{ article.title }}</h1>
+
+            <hr>
+
+            {{ article.content|raw }}
 
         </div>
     </div>

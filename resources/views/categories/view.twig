@@ -4,19 +4,13 @@
     <div id="help">
         <div class="container">
 
-            <header class="jumbotron text-center">
+            <h1>{{ category.name }}</h1>
 
-                <h1>{{ category.name }}</h1>
+            {% if category.description.value %}
+                <p>{{ category.description }}</p>
+            {% endif %}
 
-                {% if category.description.value %}
-
-                    <br>
-
-                    <p>{{ category.description }}</p>
-
-                {% endif %}
-
-            </header>
+            <hr>
 
             {% set sections = category.sections().get() %}
 

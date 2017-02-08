@@ -39,7 +39,7 @@ class HelpModuleServiceProvider extends AddonServiceProvider
             'as'   => 'anomaly.module.help::articles.index',
             'uses' => 'Anomaly\HelpModule\Http\Controller\ArticlesController@index',
         ],
-        'help/articles/{slug}'            => [
+        'help/articles/{slug}'   => [
             'as'   => 'anomaly.module.help::articles.view',
             'uses' => 'Anomaly\HelpModule\Http\Controller\ArticlesController@view',
         ],
