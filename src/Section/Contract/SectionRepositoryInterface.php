@@ -11,4 +11,11 @@
 interface SectionRepositoryInterface
 {
 
+    /**
+     * Find a section by it's slug.
+     *
+     * @param $slug
+     * @return null|SectionInterface
+     */
+    public function findBySlug($slug);
 }

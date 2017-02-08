@@ -38,8 +38,8 @@ class ArticleHandlerExtension extends Extension implements ArticleHandlerInterfa
                 $article->getPath() . '/{any?}',
                 [
                     'uses'                       => 'Anomaly\HelpModule\Http\Controller\ArticlesController@view',
-                    'streams::addon'             => 'anomaly.module.articles',
-                    'anomaly.module.articles::article' => $article->getId(),
+                    'streams::addon'             => 'anomaly.module.help',
+                    'anomaly.module.help::article' => $article->getId(),
                     'where'                      => [
                         'any' => '(.*)',
                     ],
@@ -53,8 +53,8 @@ class ArticleHandlerExtension extends Extension implements ArticleHandlerInterfa
             $article->getPath(),
             [
                 'uses'                       => 'Anomaly\HelpModule\Http\Controller\ArticlesController@view',
-                'streams::addon'             => 'anomaly.module.articles',
-                'anomaly.module.articles::article' => $article->getId(),
+                'streams::addon'             => 'anomaly.module.help',
+                'anomaly.module.help::article' => $article->getId(),
             ]
         );
     }

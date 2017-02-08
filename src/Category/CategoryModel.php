@@ -17,6 +17,36 @@ class CategoryModel extends HelpCategoriesEntryModel implements CategoryInterfac
 {
 
     /**
+     * Get the name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get the related category.
+     *
+     * @return CategoryInterface
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Get the description.
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
      * Get the related sections.
      *
      * @return SectionCollection

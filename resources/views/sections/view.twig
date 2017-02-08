@@ -1,0 +1,27 @@
+{% extends layout('help') %}
+
+{% block content %}
+    <div id="help">
+        <div class="container">
+
+            <header class="jumbotron text-center">
+
+                <h1>{{ section.title }}</h1>
+
+                {% if section.description.value %}
+
+                    <br>
+
+                    <p>{{ section.description }}</p>
+
+                {% endif %}
+
+            </header>
+
+            {% set articles = section.articles().get() %}
+
+            {% include "anomaly.module.help::articles/partials/articles" with {"articles": articles} %}
+
+        </div>
+    </div>
+{% endblock %}

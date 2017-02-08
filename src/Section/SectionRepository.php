@@ -1,5 +1,6 @@
 <?php namespace Anomaly\HelpModule\Section;
 
+use Anomaly\HelpModule\Section\Contract\SectionInterface;
 use Anomaly\HelpModule\Section\Contract\SectionRepositoryInterface;
 
 /**
@@ -28,5 +29,16 @@ class SectionRepository implements SectionRepositoryInterface
     public function __construct(SectionModel $model)
     {
         $this->model = $model;
+    }
+
+    /**
+     * Find a section by it's slug.
+     *
+     * @param $slug
+     * @return null|SectionInterface
+     */
+    public function findBySlug($slug)
+    {
+        return $this->model->where('slug', $slug)->first();
     }
 }

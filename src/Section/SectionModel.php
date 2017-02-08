@@ -1,5 +1,6 @@
 <?php namespace Anomaly\HelpModule\Section;
 
+use Anomaly\HelpModule\Category\Contract\CategoryInterface;
 use Anomaly\HelpModule\Section\Contract\SectionInterface;
 use Anomaly\Streams\Platform\Model\Help\HelpSectionsEntryModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -14,6 +15,36 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class SectionModel extends HelpSectionsEntryModel implements SectionInterface
 {
+
+    /**
+     * Get the name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get the category.
+     *
+     * @return CategoryInterface
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Get the description.
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 
     /**
      * Get the related articles.

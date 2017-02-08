@@ -36,10 +36,10 @@ class HelpModuleServiceProvider extends AddonServiceProvider
      */
     protected $routes = [
         'help'                   => [
-            'as'   => 'anomaly.module.help::categories.index',
+            'as'   => 'anomaly.module.help::articles.index',
             'uses' => 'Anomaly\HelpModule\Http\Controller\ArticlesController@index',
         ],
-        'help/{slug}'            => [
+        'help/articles/{slug}'            => [
             'as'   => 'anomaly.module.help::articles.view',
             'uses' => 'Anomaly\HelpModule\Http\Controller\ArticlesController@view',
         ],
@@ -47,13 +47,13 @@ class HelpModuleServiceProvider extends AddonServiceProvider
             'as'   => 'anomaly.module.help::articles.preview',
             'uses' => 'Anomaly\HelpModule\Http\Controller\ArticlesController@preview',
         ],
-        'help/categories/{slug}' => [
-            'as'   => 'anomaly.module.help::categories.view',
-            'uses' => 'Anomaly\HelpModule\Http\Controller\CategoriesController@view',
-        ],
         'help/sections/{slug}'   => [
             'as'   => 'anomaly.module.help::sections.view',
             'uses' => 'Anomaly\HelpModule\Http\Controller\SectionsController@view',
+        ],
+        'help/categories/{slug}' => [
+            'as'   => 'anomaly.module.help::categories.view',
+            'uses' => 'Anomaly\HelpModule\Http\Controller\CategoriesController@view',
         ],
 
         'admin/help'                                               => 'Anomaly\HelpModule\Http\Controller\Admin\ArticlesController@index',

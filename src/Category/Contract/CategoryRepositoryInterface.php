@@ -11,4 +11,11 @@
 interface CategoryRepositoryInterface
 {
 
+    /**
+     * Find the category by it's slug.
+     *
+     * @param $slug
+     * @return null|CategoryInterface
+     */
+    public function findBySlug($slug);
 }
