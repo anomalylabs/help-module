@@ -1,0 +1,19 @@
+{% extends layout('posts') %}
+
+{% block content %}
+    <div id="help">
+        <div class="container">
+
+            <h1>{{ trans('anomaly.module.help::message.tagged', {'tag': tag}) }}</h1>
+
+            <hr>
+
+            {% set articles = entries('help', 'articles').whereTags('LIKE', '%"' ~ route_parameter('tag') ~ '"%').paginate() %}
+
+            {% include "anomaly.module.help::tags/partials/articles" with {"articles": articles} %}
+
+            {{ articles.links|raw }}
+
+        </div>
+    </div>
+{% endblock %}

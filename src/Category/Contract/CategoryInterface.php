@@ -14,6 +14,13 @@ interface CategoryInterface extends EntryInterface
 {
 
     /**
+     * Get the slug.
+     *
+     * @return string
+     */
+    public function getSlug();
+
+    /**
      * Get the name.
      *
      * @return string

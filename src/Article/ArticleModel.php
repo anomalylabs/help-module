@@ -67,17 +67,6 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
     protected $response = null;
 
     /**
-     * Sort the query.
-     *
-     * @param Builder $builder
-     * @param string  $direction
-     */
-    public function scopeSorted(Builder $builder, $direction = 'asc')
-    {
-        $builder->orderBy('parent_id', $direction)->orderBy('sort_order', $direction);
-    }
-
-    /**
      * Make the article.
      *
      * @return $this
@@ -435,6 +424,24 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
         if ($entry = $this->getEntry()) {
             $array = array_merge($entry->toSearchableArray(), $array);
         }
+
+        return $array;
+    }
+
+    /**
+     * Return the routable array.
+     *
+     * @return array
+     */
+    public function toRoutableArray()
+    {
+        $array = parent::toRoutableArray();
+
+        $section  = $this->getSection();
+        $category = $section->getCategory();
+
+        $array['section']  = $section->getSlug();
+        $array['category'] = $category->getSlug();
 
         return $array;
     }

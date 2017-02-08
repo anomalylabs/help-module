@@ -35,23 +35,27 @@ class HelpModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $routes = [
-        'help'                   => [
+        'help'                             => [
             'as'   => 'anomaly.module.help::articles.index',
             'uses' => 'Anomaly\HelpModule\Http\Controller\ArticlesController@index',
         ],
-        'help/articles/{slug}'   => [
-            'as'   => 'anomaly.module.help::articles.view',
-            'uses' => 'Anomaly\HelpModule\Http\Controller\ArticlesController@view',
-        ],
-        'help/preview/{str_id}'  => [
+        'help/preview/{str_id}'            => [
             'as'   => 'anomaly.module.help::articles.preview',
             'uses' => 'Anomaly\HelpModule\Http\Controller\ArticlesController@preview',
         ],
-        'help/sections/{slug}'   => [
+        'help/tags/{tag}'                  => [
+            'as'   => 'anomaly.module.help::tags.view',
+            'uses' => 'Anomaly\HelpModule\Http\Controller\TagsController@view',
+        ],
+        'help/{category}/{section}/{slug}' => [
+            'as'   => 'anomaly.module.help::articles.view',
+            'uses' => 'Anomaly\HelpModule\Http\Controller\ArticlesController@view',
+        ],
+        'help/{category}/{slug}'           => [
             'as'   => 'anomaly.module.help::sections.view',
             'uses' => 'Anomaly\HelpModule\Http\Controller\SectionsController@view',
         ],
-        'help/categories/{slug}' => [
+        'help/{slug}'                      => [
             'as'   => 'anomaly.module.help::categories.view',
             'uses' => 'Anomaly\HelpModule\Http\Controller\CategoriesController@view',
         ],
@@ -64,9 +68,11 @@ class HelpModuleServiceProvider extends AddonServiceProvider
         'admin/help/sections'                                      => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@index',
         'admin/help/sections/create'                               => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@create',
         'admin/help/sections/edit/{id}'                            => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@edit',
+        'admin/help/sections/view/{id}'                            => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@view',
         'admin/help/categories'                                    => 'Anomaly\HelpModule\Http\Controller\Admin\CategoriesController@index',
         'admin/help/categories/create'                             => 'Anomaly\HelpModule\Http\Controller\Admin\CategoriesController@create',
         'admin/help/categories/edit/{id}'                          => 'Anomaly\HelpModule\Http\Controller\Admin\CategoriesController@edit',
+        'admin/help/categories/view/{id}'                          => 'Anomaly\HelpModule\Http\Controller\Admin\CategoriesController@view',
         'admin/help/fields'                                        => 'Anomaly\HelpModule\Http\Controller\Admin\FieldsController@index',
         'admin/help/fields/choose'                                 => 'Anomaly\HelpModule\Http\Controller\Admin\FieldsController@choose',
         'admin/help/fields/create'                                 => 'Anomaly\HelpModule\Http\Controller\Admin\FieldsController@create',

@@ -13,6 +13,58 @@ class ArticleTableBuilder extends TableBuilder
 {
 
     /**
+     * The table filters.
+     *
+     * @var array
+     */
+    protected $filters = [
+        'search' => [
+            'fields' => [
+                'title',
+                'tags',
+            ],
+        ],
+        'section',
+    ];
+
+    /**
+     * The table views.
+     *
+     * @var array
+     */
+    protected $views = [
+        'all',
+        'sort' => [
+            'filters' => [
+                'section',
+            ],
+            'options' => [
+                'sortable' => true,
+            ],
+        ],
+    ];
+
+    /**
+     * The table columns.
+     *
+     * @var array
+     */
+    protected $columns = [
+        'article' => [
+            'wrapper' => '<strong>{value.article}</strong><br><small class="text-muted">{value.category} > {value.section}</small>',
+            'value'   => [
+                'article'  => 'entry.title',
+                'section'  => 'entry.section.name',
+                'category' => 'entry.section.category.name',
+            ],
+        ],
+        'tags'    => [
+            'field' => 'tags',
+            'value' => 'entry.tags.labels("tag-info")|join()',
+        ],
+    ];
+
+    /**
      * The table buttons.
      *
      * @var array

@@ -2,6 +2,7 @@
 
 use Anomaly\HelpModule\Category\Contract\CategoryInterface;
 use Anomaly\HelpModule\Category\Contract\CategoryRepositoryInterface;
+use Anomaly\Streams\Platform\Entry\EntryRepository;
 
 /**
  * Class CategoryRepository
@@ -11,7 +12,7 @@ use Anomaly\HelpModule\Category\Contract\CategoryRepositoryInterface;
  * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\HelpModule\Category
  */
-class CategoryRepository implements CategoryRepositoryInterface
+class CategoryRepository extends EntryRepository implements CategoryRepositoryInterface
 {
 
     /**

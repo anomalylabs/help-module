@@ -18,7 +18,7 @@ class HelpModule extends Module
      *
      * @var string
      */
-    protected $icon = 'glyphicons glyphicons-book-open';
+    protected $icon = 'book-open';
 
     /**
      * The module sections.

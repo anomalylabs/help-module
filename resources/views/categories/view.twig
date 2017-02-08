@@ -12,7 +12,7 @@
 
             <hr>
 
-            {% set sections = category.sections().get() %}
+            {% set sections = category.sections().sorted().get() %}
 
             {% include "anomaly.module.help::sections/partials/sections" with {"sections": sections} %}
 

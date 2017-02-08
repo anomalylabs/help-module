@@ -1,5 +1,7 @@
 <?php namespace Anomaly\HelpModule\Http\Controller\Admin;
 
+use Anomaly\HelpModule\Section\Contract\SectionInterface;
+use Anomaly\HelpModule\Section\Contract\SectionRepositoryInterface;
 use Anomaly\HelpModule\Section\Form\SectionFormBuilder;
 use Anomaly\HelpModule\Section\Table\SectionTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
@@ -47,5 +49,19 @@ class SectionsController extends AdminController
     public function edit(SectionFormBuilder $form, $id)
     {
         return $form->render($id);
+    }
+
+    /**
+     * Redirect to a article's URL.
+     *
+     * @param  SectionRepositoryInterface $sections
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function view(SectionRepositoryInterface $sections)
+    {
+        /* @var SectionInterface $section */
+        $section = $sections->find($this->route->parameter('id'));
+
+        return $this->redirect->to($section->route('view'));
     }
 }

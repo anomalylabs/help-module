@@ -2,6 +2,7 @@
 
 use Anomaly\HelpModule\Section\Contract\SectionInterface;
 use Anomaly\HelpModule\Section\Contract\SectionRepositoryInterface;
+use Anomaly\Streams\Platform\Entry\EntryRepository;
 
 /**
  * Class SectionRepository
@@ -11,7 +12,7 @@ use Anomaly\HelpModule\Section\Contract\SectionRepositoryInterface;
  * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\HelpModule\Section
  */
-class SectionRepository implements SectionRepositoryInterface
+class SectionRepository extends EntryRepository implements SectionRepositoryInterface
 {
 
     /**

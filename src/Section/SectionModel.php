@@ -17,6 +17,16 @@ class SectionModel extends HelpSectionsEntryModel implements SectionInterface
 {
 
     /**
+     * Get the slug.
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
      * Get the name.
      *
      * @return string
@@ -64,5 +74,21 @@ class SectionModel extends HelpSectionsEntryModel implements SectionInterface
     public function articles()
     {
         return $this->hasMany('Anomaly\HelpModule\Article\ArticleModel', 'section_id');
+    }
+
+    /**
+     * Return the routable array.
+     *
+     * @return array
+     */
+    public function toRoutableArray()
+    {
+        $array = parent::toRoutableArray();
+
+        $category = $this->getCategory();
+
+        $array['category'] = $category->getSlug();
+
+        return $array;
     }
 }

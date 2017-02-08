@@ -19,6 +19,13 @@ interface SectionInterface extends EntryInterface
      *
      * @return string
      */
+    public function getSlug();
+
+    /**
+     * Get the name.
+     *
+     * @return string
+     */
     public function getName();
 
     /**

@@ -1,5 +1,7 @@
 <?php namespace Anomaly\HelpModule\Section\Contract;
 
+use Anomaly\Streams\Platform\Entry\Contract\EntryRepositoryInterface;
+
 /**
  * Interface SectionRepositoryInterface
  *
@@ -8,7 +10,7 @@
  * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\HelpModule\Section\Contract
  */
-interface SectionRepositoryInterface
+interface SectionRepositoryInterface extends EntryRepositoryInterface
 {
 
     /**

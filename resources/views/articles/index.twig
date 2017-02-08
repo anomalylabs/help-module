@@ -17,7 +17,7 @@
 
             </header>
 
-            {% set categories = entries('help', 'categories').get() %}
+            {% set categories = entries('help', 'categories').sorted().get() %}
 
             {% include "anomaly.module.help::categories/partials/categories" with {"categories": categories} %}
 

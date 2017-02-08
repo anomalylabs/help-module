@@ -10,7 +10,6 @@ use Anomaly\HelpModule\Article\Form\Command\AddEntryFormFromRequest;
 use Anomaly\HelpModule\Article\Table\ArticleTableBuilder;
 use Anomaly\HelpModule\Type\Contract\TypeRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
-use Illuminate\Routing\Redirector;
 
 /**
  * Class ArticlesController
@@ -61,8 +60,8 @@ class ArticlesController extends AdminController
     /**
      * Return the form for editing an existing article.
      *
-     * @param  ArticleRepositoryInterface                 $articles
-     * @param  ArticleEntryFormBuilder                    $form
+     * @param  ArticleRepositoryInterface $articles
+     * @param  ArticleEntryFormBuilder $form
      * @param                                             $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -80,20 +79,18 @@ class ArticlesController extends AdminController
     /**
      * Redirect to a article's URL.
      *
-     * @param  ArticleRepositoryInterface        $articles
-     * @param  Redirector                        $redirect
-     * @param                                    $id
+     * @param  ArticleRepositoryInterface $articles
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function view(ArticleRepositoryInterface $articles, Redirector $redirect, $id)
+    public function view(ArticleRepositoryInterface $articles)
     {
         /* @var ArticleInterface $article */
-        $article = $articles->find($id);
+        $article = $articles->find($this->route->parameter('id'));
 
         if (!$article->isEnabled()) {
-            return $redirect->to($article->route('preview'));
+            return $this->redirect->to($article->route('preview'));
         }
 
-        return $redirect->to($article->route('view'));
+        return $this->redirect->to($article->route('view'));
     }
 }

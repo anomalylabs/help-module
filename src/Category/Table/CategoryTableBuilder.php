@@ -14,12 +14,41 @@ class CategoryTableBuilder extends TableBuilder
 {
 
     /**
+     * The table filters.
+     *
+     * @var array
+     */
+    protected $filters = [
+        'search' => [
+            'fields' => [
+                'name',
+                'description',
+            ],
+        ],
+    ];
+
+    /**
      * The table buttons.
      *
      * @var array
      */
     protected $buttons = [
         'edit',
-        'view',
+        'sections' => [
+            'type' => 'primary',
+            'icon' => 'bookmark',
+        ],
+        'view'     => [
+            'target' => '_blank',
+        ],
+    ];
+
+    /**
+     * The table actions.
+     *
+     * @var array
+     */
+    protected $actions = [
+        'delete',
     ];
 }

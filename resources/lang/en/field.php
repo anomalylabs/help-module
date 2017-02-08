@@ -61,4 +61,7 @@ return [
         'name'         => 'Layout',
         'instructions' => 'The layout is used for displaying the article\'s content.',
     ],
+    'article'          => [
+        'name' => 'Article',
+    ],
 ];

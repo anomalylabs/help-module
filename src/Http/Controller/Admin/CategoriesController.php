@@ -1,5 +1,7 @@
 <?php namespace Anomaly\HelpModule\Http\Controller\Admin;
 
+use Anomaly\HelpModule\Category\Contract\CategoryInterface;
+use Anomaly\HelpModule\Category\Contract\CategoryRepositoryInterface;
 use Anomaly\HelpModule\Category\Form\CategoryFormBuilder;
 use Anomaly\HelpModule\Category\Table\CategoryTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
@@ -47,5 +49,19 @@ class CategoriesController extends AdminController
     public function edit(CategoryFormBuilder $form, $id)
     {
         return $form->render($id);
+    }
+
+    /**
+     * Redirect to a category's URL.
+     *
+     * @param  CategoryRepositoryInterface $categories
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function view(CategoryRepositoryInterface $categories)
+    {
+        /* @var CategoryInterface $category */
+        $category = $categories->find($this->route->parameter('id'));
+
+        return $this->redirect->to($category->route('view'));
     }
 }

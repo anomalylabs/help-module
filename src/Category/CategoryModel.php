@@ -17,6 +17,16 @@ class CategoryModel extends HelpCategoriesEntryModel implements CategoryInterfac
 {
 
     /**
+     * Get the slug.
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
      * Get the name.
      *
      * @return string

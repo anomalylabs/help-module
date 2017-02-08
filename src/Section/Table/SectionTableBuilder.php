@@ -14,6 +14,21 @@ class SectionTableBuilder extends TableBuilder
 {
 
     /**
+     * The table filters.
+     *
+     * @var array
+     */
+    protected $filters = [
+        'search' => [
+            'fields' => [
+                'name',
+                'description',
+            ],
+        ],
+        'category',
+    ];
+
+    /**
      * The table columns.
      *
      * @var array
@@ -30,6 +45,22 @@ class SectionTableBuilder extends TableBuilder
      */
     protected $buttons = [
         'edit',
-        'view',
+        'articles' => [
+            'type' => 'primary',
+            'icon' => 'book-open',
+            'href' => 'admin/help/articles?view=&page=&filter_search=&filter_section={entry.id}',
+        ],
+        'view'     => [
+            'target' => '_blank',
+        ],
+    ];
+
+    /**
+     * The table actions.
+     *
+     * @var array
+     */
+    protected $actions = [
+        'delete',
     ];
 }

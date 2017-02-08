@@ -12,7 +12,7 @@
 
             <hr>
 
-            {% set articles = section.articles().get() %}
+            {% set articles = section.articles().sorted().where('enabled', true).get() %}
 
             {% include "anomaly.module.help::articles/partials/articles" with {"articles": articles} %}
 
