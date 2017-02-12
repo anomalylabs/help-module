@@ -137,6 +137,10 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
      */
     public function metaTitle()
     {
+        if (!$this->meta_title) {
+            return $this->getTitle();
+        }
+
         return $this->meta_title;
     }
 
@@ -187,10 +191,6 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
      */
     public function getMetaTitle()
     {
-        if (!$this->meta_title) {
-            return $this->getTitle();
-        }
-
         return $this->meta_title;
     }
 

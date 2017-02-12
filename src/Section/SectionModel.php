@@ -23,6 +23,10 @@ class SectionModel extends HelpSectionsEntryModel implements SectionInterface
      */
     public function metaTitle()
     {
+        if (!$this->meta_title) {
+            return $this->getName();
+        }
+
         return $this->meta_title;
     }
 
@@ -33,6 +37,10 @@ class SectionModel extends HelpSectionsEntryModel implements SectionInterface
      */
     public function metaDescription()
     {
+        if (!$this->meta_description) {
+            return $this->getDescription();
+        }
+
         return $this->meta_description;
     }
 
