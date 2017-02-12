@@ -27,8 +27,8 @@ class CategoriesController extends PublicController
             abort(404);
         }
 
-        $this->template->set('meta_title', $category->getName());
-        $this->template->set('meta_description', $category->getDescription());
+        $this->template->set('meta_title', $category->metaTitle());
+        $this->template->set('meta_description', $category->metaDescription());
 
         $this->breadcrumbs->add(
             'anomaly.module.help::breadcrumb.help',

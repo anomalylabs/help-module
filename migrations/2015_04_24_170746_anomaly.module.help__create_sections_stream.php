@@ -29,22 +29,22 @@ class AnomalyModuleHelpCreateSectionsStream extends Migration
      * @var array
      */
     protected $assignments = [
-        'name'        => [
+        'name'             => [
             'translatable' => true,
             'required'     => true,
             'unique'       => true,
         ],
-        'slug'        => [
+        'slug'             => [
             'required' => true,
             'unique'   => true,
             'config'   => [
                 'slugify' => 'name',
             ],
         ],
-        'description' => [
+        'description'      => [
             'translatable' => true,
         ],
-        'category'    => [
+        'category'         => [
             'required' => true,
         ],
         'meta_title'       => [

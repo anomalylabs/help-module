@@ -15,6 +15,20 @@ interface SectionInterface extends EntryInterface
 {
 
     /**
+     * Return the meta title.
+     *
+     * @return string
+     */
+    public function metaTitle();
+
+    /**
+     * Return the meta description.
+     *
+     * @return string
+     */
+    public function metaDescription();
+
+    /**
      * Get the name.
      *
      * @return string

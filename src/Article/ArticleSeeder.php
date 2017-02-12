@@ -32,12 +32,12 @@ class ArticleSeeder extends Seeder
      * Create a new ArticleSeeder instance.
      *
      * @param ArticleRepositoryInterface $articles
-     * @param TypeRepositoryInterface $types
+     * @param TypeRepositoryInterface    $types
      */
     public function __construct(ArticleRepositoryInterface $articles, TypeRepositoryInterface $types)
     {
         $this->articles = $articles;
-        $this->types = $types;
+        $this->types    = $types;
     }
 
     /**

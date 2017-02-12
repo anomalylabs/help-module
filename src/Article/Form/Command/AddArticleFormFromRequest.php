@@ -36,7 +36,7 @@ class AddArticleFormFromRequest
      * Handle the command.
      *
      * @param TypeRepositoryInterface $types
-     * @param ArticleFormBuilder         $builder
+     * @param ArticleFormBuilder      $builder
      * @param Request                 $request
      */
     public function handle(TypeRepositoryInterface $types, ArticleFormBuilder $builder, Request $request)

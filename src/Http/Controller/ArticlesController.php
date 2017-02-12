@@ -80,8 +80,12 @@ class ArticlesController extends PublicController
      */
     public function view(ArticleRepositoryInterface $articles)
     {
+        $path = $this->route->getParameter('category');
+        $path .= '/' . $this->route->getParameter('section');
+        $path .= '/' . $this->route->getParameter('slug');
+
         /* @var ArticleInterface $article */
-        if (!$article = $articles->findBySlug($this->route->getParameter('slug'))) {
+        if (!$article = $articles->findByPath($path)) {
             abort(404);
         }
 

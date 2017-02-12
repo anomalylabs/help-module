@@ -60,6 +60,41 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
     protected $response = null;
 
     /**
+     * Return the article content.
+     *
+     * @return null|string
+     */
+    public function content()
+    {
+        return $this
+            ->make()
+            ->getContent();
+    }
+
+    /**
+     * Get the content.
+     *
+     * @return null|string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set the content.
+     *
+     * @param $content
+     * @return $this
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
      * Make the article.
      *
      * @return $this
@@ -74,15 +109,45 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
     }
 
     /**
-     * Return the article content.
+     * Get the article handler.
      *
-     * @return null|string
+     * @return ArticleHandlerInterface
      */
-    public function content()
+    public function getHandler()
     {
-        return $this
-            ->make()
-            ->getContent();
+        $type = $this->getType();
+
+        return $type->getHandler();
+    }
+
+    /**
+     * Get the article type.
+     *
+     * @return null|TypeInterface
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Return the meta title.
+     *
+     * @return string
+     */
+    public function metaTitle()
+    {
+        return $this->meta_title;
+    }
+
+    /**
+     * Return the meta description.
+     *
+     * @return string
+     */
+    public function metaDescription()
+    {
+        return $this->meta_description;
     }
 
     /**
@@ -231,13 +296,15 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
     }
 
     /**
-     * Get the article type.
+     * Get the related category.
      *
-     * @return null|TypeInterface
+     * @return null|CategoryInterface
      */
-    public function getType()
+    public function getCategory()
     {
-        return $this->type;
+        $section = $this->getSection();
+
+        return $section->getCategory();
     }
 
     /**
@@ -251,30 +318,6 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
     }
 
     /**
-     * Get the related category.
-     *
-     * @return null|CategoryInterface
-     */
-    public function getCategory()
-    {
-        $section = $this->getSection();
-
-        return $section->getCategory();
-    }
-
-    /**
-     * Get the article handler.
-     *
-     * @return ArticleHandlerInterface
-     */
-    public function getHandler()
-    {
-        $type = $this->getType();
-
-        return $type->getHandler();
-    }
-
-    /**
      * Get the theme layout.
      *
      * @return string
@@ -285,16 +328,6 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
     }
 
     /**
-     * Get the related entry.
-     *
-     * @return null|EntryInterface
-     */
-    public function getEntry()
-    {
-        return $this->entry;
-    }
-
-    /**
      * Get the related entry ID.
      *
      * @return null|int
@@ -302,29 +335,6 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
     public function getEntryId()
     {
         return $this->entry_id;
-    }
-
-    /**
-     * Get the content.
-     *
-     * @return null|string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /**
-     * Set the content.
-     *
-     * @param $content
-     * @return $this
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
     }
 
     /**
@@ -421,6 +431,16 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
         }
 
         return $array;
+    }
+
+    /**
+     * Get the related entry.
+     *
+     * @return null|EntryInterface
+     */
+    public function getEntry()
+    {
+        return $this->entry;
     }
 
     /**

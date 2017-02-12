@@ -41,7 +41,7 @@ class DeleteStream
         if (!$this->type->isForceDeleting()) {
             return;
         }
-        
+
         $streams->delete($streams->findBySlugAndNamespace($this->type->getSlug() . '_articles', 'help'));
     }
 }

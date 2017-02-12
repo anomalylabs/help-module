@@ -1,11 +1,12 @@
 <?php namespace Anomaly\HelpModule\Article;
 
 use Anomaly\HelpModule\Article\Command\DeleteEntry;
+use Anomaly\HelpModule\Article\Command\SetPath;
+use Anomaly\HelpModule\Article\Command\SetStrId;
 use Anomaly\HelpModule\Article\Contract\ArticleInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Entry\EntryModel;
 use Anomaly\Streams\Platform\Entry\EntryObserver;
-use Anomaly\HelpModule\Article\Command\SetStrId;
 
 /**
  * Class ArticleObserver
@@ -25,6 +26,7 @@ class ArticleObserver extends EntryObserver
     public function saving(EntryInterface $entry)
     {
         $this->dispatch(new SetStrid($entry));
+        $this->dispatch(new SetPath($entry));
 
         parent::saving($entry);
     }

@@ -27,8 +27,8 @@ class SectionsController extends PublicController
             abort(404);
         }
 
-        $this->template->set('meta_title', $section->getName());
-        $this->template->set('meta_description', $section->getDescription());
+        $this->template->set('meta_title', $section->metaTitle());
+        $this->template->set('meta_description', $section->metaDescription());
 
         $this->breadcrumbs->add(
             'anomaly.module.help::breadcrumb.help',

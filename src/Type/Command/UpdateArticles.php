@@ -38,7 +38,7 @@ class UpdateArticles
     /**
      * Handle the command.
      *
-     * @param TypeRepositoryInterface $types
+     * @param TypeRepositoryInterface    $types
      * @param ArticleRepositoryInterface $articles
      */
     public function handle(TypeRepositoryInterface $types, ArticleRepositoryInterface $articles)

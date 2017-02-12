@@ -39,7 +39,10 @@ class ArticleResponse
     {
         if (!$article->getResponse()) {
             $article->setResponse(
-                $this->response->view('anomaly.module.help::articles/view', ['article' => $article, 'content' => $article->getContent()])
+                $this->response->view(
+                    'anomaly.module.help::articles/view',
+                    ['article' => $article, 'content' => $article->getContent()]
+                )
             );
         }
     }

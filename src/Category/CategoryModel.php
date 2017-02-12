@@ -17,6 +17,26 @@ class CategoryModel extends HelpCategoriesEntryModel implements CategoryInterfac
 {
 
     /**
+     * Return the meta title.
+     *
+     * @return string
+     */
+    public function metaTitle()
+    {
+        return $this->meta_title;
+    }
+
+    /**
+     * Return the meta description.
+     *
+     * @return string
+     */
+    public function metaDescription()
+    {
+        return $this->meta_description;
+    }
+
+    /**
      * Get the slug.
      *
      * @return string

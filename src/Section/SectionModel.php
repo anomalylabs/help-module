@@ -17,6 +17,26 @@ class SectionModel extends HelpSectionsEntryModel implements SectionInterface
 {
 
     /**
+     * Return the meta title.
+     *
+     * @return string
+     */
+    public function metaTitle()
+    {
+        return $this->meta_title;
+    }
+
+    /**
+     * Return the meta description.
+     *
+     * @return string
+     */
+    public function metaDescription()
+    {
+        return $this->meta_description;
+    }
+
+    /**
      * Get the slug.
      *
      * @return string
@@ -34,16 +54,6 @@ class SectionModel extends HelpSectionsEntryModel implements SectionInterface
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Get the category.
-     *
-     * @return CategoryInterface
-     */
-    public function getCategory()
-    {
-        return $this->category;
     }
 
     /**
@@ -90,5 +100,15 @@ class SectionModel extends HelpSectionsEntryModel implements SectionInterface
         $array['category'] = $category->getSlug();
 
         return $array;
+    }
+
+    /**
+     * Get the category.
+     *
+     * @return CategoryInterface
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

@@ -1,8 +1,8 @@
 <?php namespace Anomaly\HelpModule\Article\Form\Command;
 
-use Anomaly\HelpModule\Entry\Form\EntryFormBuilder;
 use Anomaly\HelpModule\Article\Contract\ArticleInterface;
 use Anomaly\HelpModule\Article\Form\ArticleEntryFormBuilder;
+use Anomaly\HelpModule\Entry\Form\EntryFormBuilder;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
@@ -40,7 +40,7 @@ class AddEntryFormFromArticle
     public function __construct(ArticleEntryFormBuilder $builder, ArticleInterface $article)
     {
         $this->builder = $builder;
-        $this->article    = $article;
+        $this->article = $article;
     }
 
     /**

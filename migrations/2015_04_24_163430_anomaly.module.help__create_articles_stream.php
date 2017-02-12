@@ -53,6 +53,9 @@ class AnomalyModuleHelpCreateArticlesStream extends Migration
         'type'             => [
             'required' => true,
         ],
+        'path'             => [
+            'required' => true,
+        ],
         'meta_title'       => [
             'translatable' => true,
         ],

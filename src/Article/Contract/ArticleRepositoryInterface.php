@@ -13,12 +13,12 @@ interface ArticleRepositoryInterface extends EntryRepositoryInterface
 {
 
     /**
-     * Find a article by it's slug.
+     * Find a article by it's path.
      *
-     * @param $slug
+     * @param $path
      * @return null|ArticleInterface
      */
-    public function findBySlug($slug);
+    public function findByPath($path);
 
     /**
      * Find a article by it's string ID.

@@ -40,7 +40,7 @@ class AddArticleFormFromArticle
     public function __construct(ArticleEntryFormBuilder $builder, ArticleInterface $article)
     {
         $this->builder = $builder;
-        $this->article    = $article;
+        $this->article = $article;
     }
 
     /**

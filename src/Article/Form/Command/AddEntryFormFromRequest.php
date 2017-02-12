@@ -1,7 +1,7 @@
 <?php namespace Anomaly\HelpModule\Article\Form\Command;
 
-use Anomaly\HelpModule\Entry\Form\EntryFormBuilder;
 use Anomaly\HelpModule\Article\Form\ArticleEntryFormBuilder;
+use Anomaly\HelpModule\Entry\Form\EntryFormBuilder;
 use Anomaly\HelpModule\Type\Contract\TypeRepositoryInterface;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;

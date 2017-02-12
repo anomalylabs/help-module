@@ -16,7 +16,7 @@ class ArticleCollection extends EntryCollection
     /**
      * Return only exact articles.
      *
-     * @param  bool           $exact
+     * @param  bool $exact
      * @return ArticleCollection
      */
     public function exact($exact = true)
@@ -54,7 +54,7 @@ class ArticleCollection extends EntryCollection
     /**
      * Return only visible articles.
      *
-     * @param  bool           $visible
+     * @param  bool $visible
      * @return ArticleCollection
      */
     public function visible($visible = true)
@@ -135,7 +135,7 @@ class ArticleCollection extends EntryCollection
     /**
      * Return only active articles.
      *
-     * @param  bool           $active
+     * @param  bool $active
      * @return ArticleCollection
      */
     public function active($active = true)

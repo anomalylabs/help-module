@@ -1,9 +1,9 @@
 <?php namespace Anomaly\HelpModule\Article\Command;
 
-use Anomaly\HelpModule\Article\Contract\ArticleInterface;
 use Anomaly\HelpModule\Article\ArticleContent;
 use Anomaly\HelpModule\Article\ArticleLoader;
 use Anomaly\HelpModule\Article\ArticleResponse;
+use Anomaly\HelpModule\Article\Contract\ArticleInterface;
 
 
 /**

@@ -65,16 +65,6 @@ class TypeModel extends HelpTypesEntryModel implements TypeInterface
     }
 
     /**
-     * Get the related entry stream.
-     *
-     * @return StreamInterface
-     */
-    public function getEntryStream()
-    {
-        return $this->dispatch(new GetStream($this));
-    }
-
-    /**
      * Get the related entry stream ID.
      *
      * @return null|int
@@ -86,6 +76,16 @@ class TypeModel extends HelpTypesEntryModel implements TypeInterface
         }
 
         return $stream->getId();
+    }
+
+    /**
+     * Get the related entry stream.
+     *
+     * @return StreamInterface
+     */
+    public function getEntryStream()
+    {
+        return $this->dispatch(new GetStream($this));
     }
 
     /**

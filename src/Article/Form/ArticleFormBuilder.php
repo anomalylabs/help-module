@@ -54,24 +54,6 @@ class ArticleFormBuilder extends FormBuilder
     }
 
     /**
-     * Fired just before saving the form.
-     */
-    public function onSaving()
-    {
-        $entry  = $this->getFormEntry();
-        $parent = $this->getParent();
-        $type   = $this->getType();
-
-        if (!$entry->type_id) {
-            $entry->type_id = $type->getId();
-        }
-
-        if ($parent) {
-            $entry->parent_id = $parent->getId();
-        }
-    }
-
-    /**
      * Get the type.
      *
      * @return TypeInterface|null
@@ -92,6 +74,24 @@ class ArticleFormBuilder extends FormBuilder
         $this->type = $type;
 
         return $this;
+    }
+
+    /**
+     * Fired just before saving the form.
+     */
+    public function onSaving()
+    {
+        $entry  = $this->getFormEntry();
+        $parent = $this->getParent();
+        $type   = $this->getType();
+
+        if (!$entry->type_id) {
+            $entry->type_id = $type->getId();
+        }
+
+        if ($parent) {
+            $entry->parent_id = $parent->getId();
+        }
     }
 
     /**

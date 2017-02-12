@@ -37,10 +37,10 @@ class ArticleHandlerExtension extends Extension implements ArticleHandlerInterfa
             \Route::any(
                 $article->getPath() . '/{any?}',
                 [
-                    'uses'                       => 'Anomaly\HelpModule\Http\Controller\ArticlesController@view',
-                    'streams::addon'             => 'anomaly.module.help',
+                    'uses'                         => 'Anomaly\HelpModule\Http\Controller\ArticlesController@view',
+                    'streams::addon'               => 'anomaly.module.help',
                     'anomaly.module.help::article' => $article->getId(),
-                    'where'                      => [
+                    'where'                        => [
                         'any' => '(.*)',
                     ],
                 ]
@@ -52,8 +52,8 @@ class ArticleHandlerExtension extends Extension implements ArticleHandlerInterfa
         \Route::any(
             $article->getPath(),
             [
-                'uses'                       => 'Anomaly\HelpModule\Http\Controller\ArticlesController@view',
-                'streams::addon'             => 'anomaly.module.help',
+                'uses'                         => 'Anomaly\HelpModule\Http\Controller\ArticlesController@view',
+                'streams::addon'               => 'anomaly.module.help',
                 'anomaly.module.help::article' => $article->getId(),
             ]
         );

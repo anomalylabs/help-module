@@ -38,7 +38,7 @@ class ArticleLoader
     public function load(ArticleInterface $article)
     {
         $this->template->set('title', $article->getTitle());
-        $this->template->set('meta_title', $article->getMetaTitle());
-        $this->template->set('meta_description', $article->getMetaDescription());
+        $this->template->set('meta_title', $article->metaTitle());
+        $this->template->set('meta_description', $article->metaDescription());
     }
 }

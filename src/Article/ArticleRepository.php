@@ -35,14 +35,14 @@ class ArticleRepository extends EntryRepository implements ArticleRepositoryInte
     }
 
     /**
-     * Find a article by it's slug.
+     * Find a article by it's path.
      *
-     * @param $slug
+     * @param $path
      * @return null|ArticleInterface
      */
-    public function findBySlug($slug)
+    public function findByPath($path)
     {
-        return $this->model->where('slug', $slug)->first();
+        return $this->model->where('path', $path)->first();
     }
 
     /**

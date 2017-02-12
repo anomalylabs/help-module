@@ -1,8 +1,8 @@
 <?php namespace Anomaly\HelpModule\Article\Command;
 
+use Anomaly\HelpModule\Article\ArticlePresenter;
 use Anomaly\HelpModule\Article\Contract\ArticleInterface;
 use Anomaly\HelpModule\Article\Contract\ArticleRepositoryInterface;
-use Anomaly\HelpModule\Article\ArticlePresenter;
 use Anomaly\Streams\Platform\Model\EloquentModel;
 use Anomaly\Streams\Platform\View\ViewTemplate;
 
@@ -37,8 +37,8 @@ class GetArticle
     /**
      * Handle the command.
      *
-     * @param  ArticleRepositoryInterface          $articles
-     * @param  ViewTemplate                     $template
+     * @param  ArticleRepositoryInterface $articles
+     * @param  ViewTemplate               $template
      * @return ArticleInterface|EloquentModel|null
      */
     public function handle(ArticleRepositoryInterface $articles, ViewTemplate $template)

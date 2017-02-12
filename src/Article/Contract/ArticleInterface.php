@@ -34,6 +34,20 @@ interface ArticleInterface extends EntryInterface
     public function content();
 
     /**
+     * Return the meta title.
+     *
+     * @return string
+     */
+    public function metaTitle();
+
+    /**
+     * Return the meta description.
+     *
+     * @return string
+     */
+    public function metaDescription();
+
+    /**
      * Get the path.
      *
      * @return string
