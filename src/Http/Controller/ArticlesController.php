@@ -33,6 +33,28 @@ class ArticlesController extends PublicController
     }
 
     /**
+     * Return a search of existing articles.
+     *
+     * @return \Illuminate\Contracts\View\View|mixed
+     */
+    public function search()
+    {
+        $this->breadcrumbs->add(
+            'anomaly.module.help::breadcrumb.help',
+            $this->url->route('anomaly.module.help::articles.index')
+        );
+
+        $this->breadcrumbs->add(
+            'anomaly.module.help::breadcrumb.search',
+            $this->url->route('anomaly.module.help::articles.search')
+        );
+
+        $this->template->set('meta_title', 'anomaly.module.help::breadcrumb.search');
+
+        return $this->view->make('anomaly.module.help::articles/search');
+    }
+
+    /**
      * Preview a single article.
      *
      * @param ArticleRepositoryInterface $articles

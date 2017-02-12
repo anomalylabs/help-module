@@ -6,6 +6,8 @@ return [
     'choose_category'     => 'What category would you like to manage?',
     'choose_section'      => 'What section would you like to manage?',
     'choose_field'        => 'What field would you like to add?',
-    'help_center'         => 'Help Center',
+    'related_articles'    => 'Related Articles',
     'tagged'              => 'Tagged ":tag"',
+    'posted'              => 'Posted :date',
+    'help_center'         => 'Help Center',
 ];

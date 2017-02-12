@@ -4,6 +4,7 @@ use Anomaly\HelpModule\Category\Contract\CategoryInterface;
 use Anomaly\HelpModule\Category\Contract\CategoryRepositoryInterface;
 use Anomaly\HelpModule\Category\Form\CategoryFormBuilder;
 use Anomaly\HelpModule\Category\Table\CategoryTableBuilder;
+use Anomaly\HelpModule\Section\Table\SectionTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 
 /**
@@ -63,5 +64,25 @@ class CategoriesController extends AdminController
         $category = $categories->find($this->route->parameter('id'));
 
         return $this->redirect->to($category->route('view'));
+    }
+
+    /**
+     * Organize the sections.
+     *
+     * @param CategoryRepositoryInterface $categories
+     * @param SectionTableBuilder         $builder
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function organize(CategoryRepositoryInterface $categories, SectionTableBuilder $builder)
+    {
+        /* @var CategoryInterface $category */
+        $category = $categories->find($this->route->parameter('id'));
+
+        $this->breadcrumbs->add($category->getName());
+
+        return $builder
+            ->setOption('sortable', true)
+            ->setCategory($category)
+            ->render();
     }
 }

@@ -1,5 +1,6 @@
 <?php namespace Anomaly\HelpModule\Section\Table;
 
+use Anomaly\HelpModule\Category\Contract\CategoryInterface;
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
 
 /**
@@ -12,6 +13,13 @@ use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
  */
 class SectionTableBuilder extends TableBuilder
 {
+
+    /**
+     * The category instance.
+     *
+     * @var CategoryInterface|null
+     */
+    protected $category = null;
 
     /**
      * The table filters.
@@ -45,10 +53,9 @@ class SectionTableBuilder extends TableBuilder
      */
     protected $buttons = [
         'edit',
-        'articles' => [
+        'organize' => [
             'type' => 'primary',
-            'icon' => 'book-open',
-            'href' => 'admin/help/articles?view=&page=&filter_search=&filter_section={entry.id}',
+            'icon' => 'fa fa-random',
         ],
         'view'     => [
             'target' => '_blank',
@@ -63,4 +70,27 @@ class SectionTableBuilder extends TableBuilder
     protected $actions = [
         'delete',
     ];
+
+    /**
+     * Get the category.
+     *
+     * @return CategoryInterface|null
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set the category.
+     *
+     * @param CategoryInterface $category
+     * @return $this
+     */
+    public function setCategory(CategoryInterface $category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
 }

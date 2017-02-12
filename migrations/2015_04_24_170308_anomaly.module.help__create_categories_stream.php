@@ -50,9 +50,6 @@ class AnomalyModuleHelpCreateCategoriesStream extends Migration
         'meta_description' => [
             'translatable' => true,
         ],
-        'meta_keywords'    => [
-            'translatable' => true,
-        ],
     ];
 
 }

@@ -1,7 +1,8 @@
 <?php namespace Anomaly\HelpModule\Article\Contract;
 
-use Anomaly\HelpModule\Article\Handler\Contract\ArticleHandlerInterface;
 use Anomaly\HelpModule\Article\ArticleCollection;
+use Anomaly\HelpModule\Article\Handler\Contract\ArticleHandlerInterface;
+use Anomaly\HelpModule\Category\Contract\CategoryInterface;
 use Anomaly\HelpModule\Section\Contract\SectionInterface;
 use Anomaly\HelpModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
@@ -98,13 +99,6 @@ interface ArticleInterface extends EntryInterface
     public function getMetaTitle();
 
     /**
-     * Get the meta keywords.
-     *
-     * @return array
-     */
-    public function getMetaKeywords();
-
-    /**
      * Get the meta description.
      *
      * @return string
@@ -177,9 +171,16 @@ interface ArticleInterface extends EntryInterface
     /**
      * Get the related section.
      *
-     * @return null|SectionInterface
+     * @return SectionInterface
      */
     public function getSection();
+
+    /**
+     * Get the related category.
+     *
+     * @return CategoryInterface
+     */
+    public function getCategory();
 
     /**
      * Get the article handler.

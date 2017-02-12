@@ -1,6 +1,8 @@
 <?php namespace Anomaly\HelpModule\Article\Table;
 
+use Anomaly\HelpModule\Section\Contract\SectionInterface;
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Class ArticleTableBuilder
@@ -11,6 +13,13 @@ use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
  */
 class ArticleTableBuilder extends TableBuilder
 {
+
+    /**
+     * The section instance.
+     *
+     * @var SectionInterface|null
+     */
+    protected $section = null;
 
     /**
      * The table filters.
@@ -25,23 +34,6 @@ class ArticleTableBuilder extends TableBuilder
             ],
         ],
         'section',
-    ];
-
-    /**
-     * The table views.
-     *
-     * @var array
-     */
-    protected $views = [
-        'all',
-        'sort' => [
-            'filters' => [
-                'section',
-            ],
-            'options' => [
-                'sortable' => true,
-            ],
-        ],
     ];
 
     /**
@@ -84,4 +76,39 @@ class ArticleTableBuilder extends TableBuilder
     protected $actions = [
         'delete',
     ];
+
+    /**
+     * Fired when querying.
+     *
+     * @param Builder $query
+     */
+    public function onQuerying(Builder $query)
+    {
+        if ($section = $this->getSection()) {
+            $query->where('section_id', $section->getId());
+        }
+    }
+
+    /**
+     * Get the section.
+     *
+     * @return SectionInterface|null
+     */
+    public function getSection()
+    {
+        return $this->section;
+    }
+
+    /**
+     * Set the section.
+     *
+     * @param SectionInterface $section
+     * @return $this
+     */
+    public function setSection(SectionInterface $section)
+    {
+        $this->section = $section;
+
+        return $this;
+    }
 }

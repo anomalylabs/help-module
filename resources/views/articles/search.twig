@@ -17,9 +17,11 @@
 
             </header>
 
-            {% set categories = entries('help', 'categories').sorted().get() %}
+            {% set articles = entries('help', 'articles').search(request_get('q')).paginate() %}
 
-            {% include "anomaly.module.help::categories/partials/categories" with {"categories": categories} %}
+            {% include "anomaly.module.help::articles/partials/results" with {"articles": articles} %}
+
+            {{ articles.links|raw }}
 
         </div>
     </div>

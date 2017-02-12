@@ -39,6 +39,10 @@ class HelpModuleServiceProvider extends AddonServiceProvider
             'as'   => 'anomaly.module.help::articles.index',
             'uses' => 'Anomaly\HelpModule\Http\Controller\ArticlesController@index',
         ],
+        'help/search'                      => [
+            'as'   => 'anomaly.module.help::articles.search',
+            'uses' => 'Anomaly\HelpModule\Http\Controller\ArticlesController@search',
+        ],
         'help/preview/{str_id}'            => [
             'as'   => 'anomaly.module.help::articles.preview',
             'uses' => 'Anomaly\HelpModule\Http\Controller\ArticlesController@preview',
@@ -69,10 +73,12 @@ class HelpModuleServiceProvider extends AddonServiceProvider
         'admin/help/sections/create'                               => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@create',
         'admin/help/sections/edit/{id}'                            => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@edit',
         'admin/help/sections/view/{id}'                            => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@view',
+        'admin/help/sections/organize/{id}'                        => 'Anomaly\HelpModule\Http\Controller\Admin\SectionsController@organize',
         'admin/help/categories'                                    => 'Anomaly\HelpModule\Http\Controller\Admin\CategoriesController@index',
         'admin/help/categories/create'                             => 'Anomaly\HelpModule\Http\Controller\Admin\CategoriesController@create',
         'admin/help/categories/edit/{id}'                          => 'Anomaly\HelpModule\Http\Controller\Admin\CategoriesController@edit',
         'admin/help/categories/view/{id}'                          => 'Anomaly\HelpModule\Http\Controller\Admin\CategoriesController@view',
+        'admin/help/categories/organize/{id}'                      => 'Anomaly\HelpModule\Http\Controller\Admin\CategoriesController@organize',
         'admin/help/fields'                                        => 'Anomaly\HelpModule\Http\Controller\Admin\FieldsController@index',
         'admin/help/fields/choose'                                 => 'Anomaly\HelpModule\Http\Controller\Admin\FieldsController@choose',
         'admin/help/fields/create'                                 => 'Anomaly\HelpModule\Http\Controller\Admin\FieldsController@create',

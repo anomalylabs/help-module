@@ -39,7 +39,6 @@ class ArticleLoader
     {
         $this->template->set('title', $article->getTitle());
         $this->template->set('meta_title', $article->getMetaTitle());
-        $this->template->set('meta_keywords', $article->getMetaKeywords());
         $this->template->set('meta_description', $article->getMetaDescription());
     }
 }

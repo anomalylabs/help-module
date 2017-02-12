@@ -1,5 +1,6 @@
 <?php namespace Anomaly\HelpModule\Http\Controller\Admin;
 
+use Anomaly\HelpModule\Article\Table\ArticleTableBuilder;
 use Anomaly\HelpModule\Section\Contract\SectionInterface;
 use Anomaly\HelpModule\Section\Contract\SectionRepositoryInterface;
 use Anomaly\HelpModule\Section\Form\SectionFormBuilder;
@@ -63,5 +64,25 @@ class SectionsController extends AdminController
         $section = $sections->find($this->route->parameter('id'));
 
         return $this->redirect->to($section->route('view'));
+    }
+
+    /**
+     * Organize the sections.
+     *
+     * @param SectionRepositoryInterface $sections
+     * @param ArticleTableBuilder        $builder
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function organize(SectionRepositoryInterface $sections, ArticleTableBuilder $builder)
+    {
+        /* @var SectionInterface $section */
+        $section = $sections->find($this->route->parameter('id'));
+
+        $this->breadcrumbs->add($section->getName());
+
+        return $builder
+            ->setOption('sortable', true)
+            ->setSection($section)
+            ->render();
     }
 }

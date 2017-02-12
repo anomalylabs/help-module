@@ -34,9 +34,9 @@ class CategoryTableBuilder extends TableBuilder
      */
     protected $buttons = [
         'edit',
-        'sections' => [
+        'organize' => [
             'type' => 'primary',
-            'icon' => 'bookmark',
+            'icon' => 'fa fa-random',
         ],
         'view'     => [
             'target' => '_blank',
@@ -50,5 +50,14 @@ class CategoryTableBuilder extends TableBuilder
      */
     protected $actions = [
         'delete',
+    ];
+
+    /**
+     * The table options.
+     *
+     * @var array
+     */
+    protected $options = [
+        'sortable' => true,
     ];
 }

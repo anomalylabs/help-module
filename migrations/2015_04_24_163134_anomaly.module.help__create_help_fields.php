@@ -27,6 +27,9 @@ class AnomalyModuleHelpCreateHelpFields extends Migration
             ],
         ],
         'content'          => [
+            'en'     => [
+                'name' => 'Content',
+            ],
             'type'   => 'anomaly.field_type.wysiwyg',
             'locked' => 0, // Used with seeded pages.
         ],
@@ -62,7 +65,6 @@ class AnomalyModuleHelpCreateHelpFields extends Migration
         ],
         'meta_title'       => 'anomaly.field_type.text',
         'meta_description' => 'anomaly.field_type.textarea',
-        'meta_keywords'    => 'anomaly.field_type.tags',
         'layout'           => [
             'type'   => 'anomaly.field_type.editor',
             'config' => [

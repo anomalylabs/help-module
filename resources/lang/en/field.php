@@ -3,26 +3,24 @@
 return [
     'title'            => [
         'name'         => 'Title',
-        'placeholder'  => config('streams.app.name') . ' 101: Introduction',
-        'instructions' => 'What is the title of the article?',
+        'instructions' => 'Specify a descriptive article title.',
     ],
     'slug'             => [
         'name'         => 'Slug',
-        'placeholder'  => str_slug(config('streams.app.name') . ' 101: Introduction'),
-        'instructions' => 'What is the title of the article?',
-    ],
-    'content'          => [
-        'name'         => 'Content',
-        'instructions' => 'Write the article content below.',
+        'instructions' => [
+            'articles'   => 'The slug is used in building the article\'s URL.',
+            'sections'   => 'The slug is used in building the section\'s URL.',
+            'categories' => 'The slug is used in building the category\'s URL.',
+            'types'      => 'The slug is used in making the database table for articles of this type.',
+        ],
     ],
     'section'          => [
         'name'         => 'Section',
-        'placeholder'  => 'Please choose a section...',
-        'instructions' => 'What section should the article display in?',
+        'instructions' => 'Choose which category section this article belong to.',
     ],
     'enabled'          => [
         'name'         => 'Enabled',
-        'instructions' => 'Items will only display if enabled.',
+        'instructions' => 'Articles will only display if enabled.',
     ],
     'tags'             => [
         'name'         => 'Tags',
@@ -30,35 +28,46 @@ return [
     ],
     'name'             => [
         'name'         => 'Name',
-        'placeholder'  => 'Introduction',
-        'instructions' => 'What is the name of this category?',
+        'instructions' => [
+            'types'      => 'Specify a short descriptive name for this article type.',
+            'categories' => 'Specify a short descriptive name for this category.',
+            'sections'   => 'Specify a short descriptive name for this section.',
+        ],
     ],
     'description'      => [
         'name'         => 'Description',
-        'instructions' => 'Briefly describe this category.',
+        'instructions' => [
+            'types'      => 'Briefly describe the article type.',
+            'categories' => 'Briefly describe the category.',
+        ],
     ],
     'category'         => [
-        'name' => 'Category',
+        'name'         => 'Category',
+        'instructions' => 'Choose which category this section belongs to.',
     ],
     'meta_title'       => [
         'name'         => 'Meta Title',
         'instructions' => 'Specify the SEO title.',
-        'warning'      => 'The title will be used by default.',
+        'warning'      => [
+            'articles'   => 'The title will be used by default.',
+            'sections'   => 'The name will be used by default.',
+            'categories' => 'The name will be used by default.',
+        ],
     ],
     'meta_description' => [
         'name'         => 'Meta Description',
-        'instructions' => 'Specify the SEO description.',
-    ],
-    'meta_keywords'    => [
-        'name'         => 'Meta Keywords',
-        'instructions' => 'Specify the SEO keywords.',
+        'instructions' => [
+            'articles'   => 'Specify the SEO description.',
+            'sections'   => 'The description will be used by default.',
+            'categories' => 'The description will be used by default.',
+        ],
     ],
     'theme_layout'     => [
         'name'         => 'Theme Layout',
         'instructions' => 'Specify the theme layout to wrap the <strong>article layout</strong> with.',
     ],
     'layout'           => [
-        'name'         => 'Layout',
+        'name'         => 'Article Layout',
         'instructions' => 'The layout is used for displaying the article\'s content.',
     ],
     'article'          => [

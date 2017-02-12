@@ -2,12 +2,12 @@
 
 use Anomaly\HelpModule\Article\Contract\ArticleInterface;
 use Anomaly\HelpModule\Article\Handler\Contract\ArticleHandlerInterface;
+use Anomaly\HelpModule\Category\Contract\CategoryInterface;
 use Anomaly\HelpModule\Section\Contract\SectionInterface;
 use Anomaly\HelpModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Model\EloquentCollection;
 use Anomaly\Streams\Platform\Model\Help\HelpArticlesEntryModel;
-use Illuminate\Database\Eloquent\Builder;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -19,13 +19,6 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
 {
-
-    /**
-     * The cache minutes.
-     *
-     * @var int
-     */
-    protected $ttl = 99999;
 
     /**
      * Always eager load these.
@@ -134,16 +127,6 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
         }
 
         return $this->meta_title;
-    }
-
-    /**
-     * Get the meta keywords.
-     *
-     * @return array
-     */
-    public function getMetaKeywords()
-    {
-        return $this->meta_keywords;
     }
 
     /**
@@ -265,6 +248,18 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
     public function getSection()
     {
         return $this->section;
+    }
+
+    /**
+     * Get the related category.
+     *
+     * @return null|CategoryInterface
+     */
+    public function getCategory()
+    {
+        $section = $this->getSection();
+
+        return $section->getCategory();
     }
 
     /**

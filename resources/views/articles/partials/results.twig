@@ -1,0 +1,20 @@
+<ul class="list-unstyled">
+    {% for article in articles %}
+
+        <li>
+
+            <h4>
+                <a href="{{ article.route('view') }}">{{ article.title }}</a>
+
+                <br>
+
+                <small>
+                    {{ article.section.category.name }} &rsaquo; {{ article.section.name }}
+                </small>
+            </h4>
+
+            <p>{{ article.meta_description }}</p>
+        </li>
+
+    {% endfor %}
+</ul>

@@ -8,6 +8,8 @@ use Anomaly\HelpModule\Article\Form\Command\AddArticleFormFromRequest;
 use Anomaly\HelpModule\Article\Form\Command\AddEntryFormFromArticle;
 use Anomaly\HelpModule\Article\Form\Command\AddEntryFormFromRequest;
 use Anomaly\HelpModule\Article\Table\ArticleTableBuilder;
+use Anomaly\HelpModule\Section\Contract\SectionInterface;
+use Anomaly\HelpModule\Section\Contract\SectionRepositoryInterface;
 use Anomaly\HelpModule\Type\Contract\TypeRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 
@@ -60,8 +62,8 @@ class ArticlesController extends AdminController
     /**
      * Return the form for editing an existing article.
      *
-     * @param  ArticleRepositoryInterface $articles
-     * @param  ArticleEntryFormBuilder $form
+     * @param  ArticleRepositoryInterface                 $articles
+     * @param  ArticleEntryFormBuilder                    $form
      * @param                                             $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -92,5 +94,22 @@ class ArticlesController extends AdminController
         }
 
         return $this->redirect->to($article->route('view'));
+    }
+
+    /**
+     * Organize the articles.
+     *
+     * @param SectionRepositoryInterface $sections
+     * @param ArticleTableBuilder        $builder
+     */
+    public function organize(SectionRepositoryInterface $sections, ArticleTableBuilder $builder)
+    {
+        /* @var SectionInterface $section */
+        $section = $sections->find($this->route->parameter('section'));
+
+        return $builder
+            ->setOption('sortable', true)
+            ->setSection($section)
+            ->render();
     }
 }

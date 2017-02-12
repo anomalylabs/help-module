@@ -59,9 +59,6 @@ class AnomalyModuleHelpCreateArticlesStream extends Migration
         'meta_description' => [
             'translatable' => true,
         ],
-        'meta_keywords'    => [
-            'translatable' => true,
-        ],
         'enabled',
         'tags',
     ];

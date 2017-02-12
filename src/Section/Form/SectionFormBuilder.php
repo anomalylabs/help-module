@@ -13,4 +13,25 @@ use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
 class SectionFormBuilder extends FormBuilder
 {
 
+    /**
+     * The form sections.
+     *
+     * @var array
+     */
+    protected $sections = [
+        'general' => [
+            'fields' => [
+                'name',
+                'slug',
+                'category',
+                'description',
+            ],
+        ],
+        'seo'     => [
+            'fields' => [
+                'meta_title',
+                'meta_description',
+            ],
+        ],
+    ];
 }

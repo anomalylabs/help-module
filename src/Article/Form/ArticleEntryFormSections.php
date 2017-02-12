@@ -29,7 +29,7 @@ class ArticleEntryFormSections
                         'article_section',
                     ],
                 ],
-                'example'  => [
+                'example' => [
                     'fields' => function (ArticleEntryFormBuilder $builder) {
                         return array_map(
                             function (FieldType $field) {
@@ -47,7 +47,6 @@ class ArticleEntryFormSections
                 'seo'     => [
                     'fields' => [
                         'article_meta_title',
-                        'article_meta_keywords',
                         'article_meta_description',
                     ],
                 ],
