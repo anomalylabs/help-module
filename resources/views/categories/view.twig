@@ -12,16 +12,6 @@
 
             <hr>
 
-            <div class="row">
-                <div class="col-lg-9">
-                    {{ article.content|raw }}
-                </div>
-
-                <div class="col-lg-3">
-                    {% include "anomaly.module.help::articles/partials/sidebar" %}
-                </div>
-            </div>
-
             {% set sections = category.sections().sorted().get() %}
 
             {% include "anomaly.module.help::sections/partials/sections" with {"sections": sections} %}
