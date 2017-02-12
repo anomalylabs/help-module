@@ -1,8 +1,7 @@
 {
     "name": "anomaly/help-module",
     "type": "streams-addon",
-    "description": "Help management.",
-    "version": "1.0.0",
+    "description": "A flexible and easy knowledge base.",
     "keywords": [
         "streams-addon",
         "help",

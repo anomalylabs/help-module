@@ -1,6 +1,6 @@
 <ul class="list-unstyled">
-    {% for article in articles %}
 
+    {% for article in articles %}
         <li>
 
             <h4>
@@ -13,8 +13,16 @@
                 </small>
             </h4>
 
-            <p>{{ article.meta_description }}</p>
-        </li>
+            <span class="tags">
+                {% for tag in article.tags.value %}
+                    <a href="{{ url_route('anomaly.module.help::tags.view', {'tag': tag}) }}"
+                       class="label label-info list-inline-item">
+                        {{ tag }}
+                    </a>
+                {% endfor %}
+            </span>
 
+        </li>
     {% endfor %}
+    
 </ul>

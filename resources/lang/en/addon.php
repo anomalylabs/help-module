@@ -3,5 +3,5 @@
 return [
     'title'       => 'Help',
     'name'        => 'Help Module',
-    'description' => 'Knowledge base management made easy.',
+    'description' => 'A flexible and easy knowledge base.',
 ];
