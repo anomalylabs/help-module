@@ -2,9 +2,9 @@
     <div class="row">
         {% for section in sections %}
             <div class="col-md-6">
-                <h4>
+                <h3>
                     {{ html_link(section.route('view'), section.title) }}
-                </h4>
+                </h3>
 
                 {% set articles = section.articles().sorted().where('enabled', true).get() %}
 
