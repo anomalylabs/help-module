@@ -2,6 +2,7 @@
 
 use Anomaly\HelpModule\Category\Contract\CategoryInterface;
 use Anomaly\HelpModule\Section\SectionCollection;
+use Anomaly\HelpModule\Section\SectionModel;
 use Anomaly\Streams\Platform\Model\Help\HelpCategoriesEntryModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -101,6 +102,6 @@ class CategoryModel extends HelpCategoriesEntryModel implements CategoryInterfac
      */
     public function sections()
     {
-        return $this->hasMany('Anomaly\HelpModule\Section\SectionModel', 'category_id');
+        return $this->hasMany(SectionModel::class, 'category_id');
     }
 }

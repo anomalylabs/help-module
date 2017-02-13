@@ -1,5 +1,7 @@
 <?php namespace Anomaly\HelpModule\Section;
 
+use Anomaly\HelpModule\Article\ArticleCollection;
+use Anomaly\HelpModule\Article\ArticleModel;
 use Anomaly\HelpModule\Category\Contract\CategoryInterface;
 use Anomaly\HelpModule\Section\Contract\SectionInterface;
 use Anomaly\Streams\Platform\Model\Help\HelpSectionsEntryModel;
@@ -77,7 +79,7 @@ class SectionModel extends HelpSectionsEntryModel implements SectionInterface
     /**
      * Get the related articles.
      *
-     * @return SectionCollection
+     * @return ArticleCollection
      */
     public function getArticles()
     {
@@ -91,7 +93,7 @@ class SectionModel extends HelpSectionsEntryModel implements SectionInterface
      */
     public function articles()
     {
-        return $this->hasMany('Anomaly\HelpModule\Article\ArticleModel', 'section_id');
+        return $this->hasMany(ArticleModel::class, 'section_id');
     }
 
     /**

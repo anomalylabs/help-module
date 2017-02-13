@@ -1,7 +1,9 @@
 <?php namespace Anomaly\HelpModule\Section\Contract;
 
+use Anomaly\HelpModule\Article\ArticleCollection;
 use Anomaly\HelpModule\Category\Contract\CategoryInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Interface SectionInterface
@@ -55,4 +57,18 @@ interface SectionInterface extends EntryInterface
      * @return string
      */
     public function getDescription();
+
+    /**
+     * Get the related articles.
+     *
+     * @return ArticleCollection
+     */
+    public function getArticles();
+
+    /**
+     * Return the articles relation.
+     *
+     * @return HasMany
+     */
+    public function articles();
 }
