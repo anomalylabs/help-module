@@ -21,6 +21,7 @@ class AnomalyModuleHelpCreateSectionsStream extends Migration
         'slug'         => 'sections',
         'title_column' => 'name',
         'translatable' => true,
+        'searchable'   => true,
     ];
 
     /**

@@ -21,6 +21,7 @@ class AnomalyModuleHelpCreateArticlesStream extends Migration
         'slug'         => 'articles',
         'title_column' => 'title',
         'translatable' => true,
+        'searchable'   => true,
     ];
 
     /**
