@@ -8,7 +8,7 @@
 
             <hr>
 
-            {% set articles = entries('help', 'articles').whereTags('LIKE', '%"' ~ route_parameter('tag') ~ '"%').paginate() %}
+            {% set articles = entries('help', 'articles').where('enabled', true).whereTags('LIKE', '%"' ~ route_parameter('tag') ~ '"%').paginate() %}
 
             {% include "anomaly.module.help::tags/partials/articles" with {"articles": articles} %}
 
