@@ -32,15 +32,7 @@
 
             <hr>
 
-            <div class="row">
-                <div class="col-lg-8">
-                    {{ article.content|raw }}
-                </div>
-
-                <div class="col-lg-4">
-                    {% include "anomaly.module.help::articles/partials/sidebar" %}
-                </div>
-            </div>
+            {{ article.content|raw }}
 
         </div>
     </div>

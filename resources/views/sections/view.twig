@@ -12,19 +12,9 @@
 
             <hr>
 
-            <div class="row">
-                <div class="col-lg-8">
+            {% set articles = section.articles().sorted().where('enabled', true).get() %}
 
-                    {% set articles = section.articles().sorted().where('enabled', true).get() %}
-
-                    {% include "anomaly.module.help::articles/partials/articles" with {"articles": articles} %}
-
-                </div>
-
-                <div class="col-lg-4">
-                    {% include "anomaly.module.help::sections/partials/sidebar" %}
-                </div>
-            </div>
+            {% include "anomaly.module.help::articles/partials/articles" with {"articles": articles} %}
 
         </div>
     </div>
