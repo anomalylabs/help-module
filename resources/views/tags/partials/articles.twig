@@ -12,7 +12,7 @@
                 </small>
             </h4>
 
-            <ul class="list-unstyled">
+            <ul class="list-inline">
                 {% for tag in article.tags.value %}
                     <li>
                         <a href="{{ url_route('anomaly.module.help::tags.view', {'tag': tag}) }}"
