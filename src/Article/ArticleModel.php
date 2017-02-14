@@ -450,7 +450,7 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
      */
     public function isSearchable()
     {
-        return parent::isSearchable() && $this->isEnabled();
+        return $this->isEnabled();
     }
 
     /**
