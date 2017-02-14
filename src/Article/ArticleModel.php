@@ -444,6 +444,16 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
     }
 
     /**
+     * Return whether the model is searchable or not.
+     *
+     * @return boolean
+     */
+    public function isSearchable()
+    {
+        return parent::isSearchable() && $this->isEnabled();
+    }
+
+    /**
      * Return the routable array.
      *
      * @return array

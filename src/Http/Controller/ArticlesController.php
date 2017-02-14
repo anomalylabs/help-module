@@ -67,6 +67,10 @@ class ArticlesController extends PublicController
             abort(404);
         }
 
+        if ($article->isEnabled()) {
+            abort(404);
+        }
+
         $this->dispatch(new MakeArticleResponse($article));
 
         return $article->getResponse();
@@ -86,6 +90,10 @@ class ArticlesController extends PublicController
 
         /* @var ArticleInterface $article */
         if (!$article = $articles->findByPath($path)) {
+            abort(404);
+        }
+
+        if (!$article->isEnabled()) {
             abort(404);
         }
 
