@@ -52,7 +52,7 @@ class ArticleTableBuilder extends TableBuilder
         ],
         'tags'    => [
             'field' => 'tags',
-            'value' => 'entry.tags.labels("tag-info")|join()',
+            'value' => 'entry.tags.labels("tag-info")|join(" ")',
         ],
     ];
 
