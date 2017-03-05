@@ -302,7 +302,9 @@ class ArticleModel extends HelpArticlesEntryModel implements ArticleInterface
      */
     public function getCategory()
     {
-        $section = $this->getSection();
+        if (!$section = $this->getSection()) {
+            return null;
+        }
 
         return $section->getCategory();
     }
