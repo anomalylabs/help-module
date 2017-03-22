@@ -36,11 +36,10 @@ class SetPath
      */
     public function handle()
     {
-        /* @var SectionInterface $section */
-        $section = $this->article
-            ->section()
-            ->first();
+        $this->article->load('section');
 
+        /* @var SectionInterface $section */
+        $section  = $this->article->getSection();
         $category = $section->getCategory();
 
         $this->article->setAttribute(
