@@ -36,8 +36,6 @@ class SetPath
      */
     public function handle()
     {
-        $this->article->load('section');
-
         /* @var SectionInterface $section */
         $section  = $this->article->getSection();
         $category = $section->getCategory();
