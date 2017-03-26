@@ -1,6 +1,8 @@
 <?php namespace Anomaly\HelpModule\Article\Command;
 
+use Anomaly\HelpModule\Article\ArticleModel;
 use Anomaly\HelpModule\Article\Contract\ArticleInterface;
+use Anomaly\HelpModule\Section\Contract\SectionInterface;
 
 /**
  * Class SetPath
@@ -15,7 +17,7 @@ class SetPath
     /**
      * The article instance.
      *
-     * @var ArticleInterface
+     * @var ArticleInterface|ArticleModel
      */
     protected $article;
 
@@ -34,8 +36,9 @@ class SetPath
      */
     public function handle()
     {
+        /* @var SectionInterface $section */
         $section  = $this->article->getSection();
-        $category = $this->article->getCategory();
+        $category = $section->getCategory();
 
         $this->article->setAttribute(
             'path',

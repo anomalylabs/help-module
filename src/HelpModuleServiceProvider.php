@@ -30,6 +30,30 @@ class HelpModuleServiceProvider extends AddonServiceProvider
 {
 
     /**
+     * The addon bindings.
+     *
+     * @var array
+     */
+    protected $bindings = [
+        HelpTypesEntryModel::class      => TypeModel::class,
+        HelpArticlesEntryModel::class   => ArticleModel::class,
+        HelpSectionsEntryModel::class   => SectionModel::class,
+        HelpCategoriesEntryModel::class => CategoryModel::class,
+    ];
+
+    /**
+     * The addon singleton bindings.
+     *
+     * @var array
+     */
+    protected $singletons = [
+        TypeRepositoryInterface::class     => TypeRepository::class,
+        ArticleRepositoryInterface::class  => ArticleRepository::class,
+        SectionRepositoryInterface::class  => SectionRepository::class,
+        CategoryRepositoryInterface::class => CategoryRepository::class,
+    ];
+
+    /**
      * The addon routes.
      *
      * @var array
@@ -87,30 +111,6 @@ class HelpModuleServiceProvider extends AddonServiceProvider
         'admin/help/fields/assignments/{stream}/choose'            => 'Anomaly\HelpModule\Http\Controller\Admin\AssignmentsController@choose',
         'admin/help/fields/assignments/{stream}/create'            => 'Anomaly\HelpModule\Http\Controller\Admin\AssignmentsController@create',
         'admin/help/fields/assignments/{stream}/edit/{assignment}' => 'Anomaly\HelpModule\Http\Controller\Admin\AssignmentsController@edit',
-    ];
-
-    /**
-     * The addon bindings.
-     *
-     * @var array
-     */
-    protected $bindings = [
-        HelpTypesEntryModel::class      => TypeModel::class,
-        HelpArticlesEntryModel::class   => ArticleModel::class,
-        HelpSectionsEntryModel::class   => SectionModel::class,
-        HelpCategoriesEntryModel::class => CategoryModel::class,
-    ];
-
-    /**
-     * The addon singleton bindings.
-     *
-     * @var array
-     */
-    protected $singletons = [
-        TypeRepositoryInterface::class     => TypeRepository::class,
-        ArticleRepositoryInterface::class  => ArticleRepository::class,
-        SectionRepositoryInterface::class  => SectionRepository::class,
-        CategoryRepositoryInterface::class => CategoryRepository::class,
     ];
 
 }

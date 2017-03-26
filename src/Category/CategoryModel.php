@@ -18,6 +18,15 @@ class CategoryModel extends HelpCategoriesEntryModel implements CategoryInterfac
 {
 
     /**
+     * The cascaded relations.
+     *
+     * @var array
+     */
+    protected $cascades = [
+        'sections',
+    ];
+
+    /**
      * Return the meta title.
      *
      * @return string

@@ -19,6 +19,15 @@ class SectionModel extends HelpSectionsEntryModel implements SectionInterface
 {
 
     /**
+     * The cascaded relations.
+     *
+     * @var array
+     */
+    protected $cascades = [
+        'articles',
+    ];
+
+    /**
      * Return the meta title.
      *
      * @return string
