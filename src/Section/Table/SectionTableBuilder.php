@@ -2,6 +2,7 @@
 
 use Anomaly\HelpModule\Category\Contract\CategoryInterface;
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Class SectionTableBuilder
@@ -70,6 +71,18 @@ class SectionTableBuilder extends TableBuilder
     protected $actions = [
         'delete',
     ];
+
+    /**
+     * Fired when querying.
+     *
+     * @param Builder $query
+     */
+    public function onQuerying(Builder $query)
+    {
+        if ($category = $this->getCategory()) {
+            $query->where('category_id', $category->getId());
+        }
+    }
 
     /**
      * Get the category.
