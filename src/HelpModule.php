@@ -59,6 +59,7 @@ class HelpModule extends Module
                 ],
             ],
             'sections' => [
+                'hidden' => true,
                 'assignments' => [
                     'href'    => 'admin/help/fields/assignments/{request.route.parameters.stream}',
                     'buttons' => [
