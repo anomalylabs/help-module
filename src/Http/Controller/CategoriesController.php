@@ -18,12 +18,13 @@ class CategoriesController extends PublicController
      * View a single category.
      *
      * @param CategoryRepositoryInterface $categories
+     * @param                             $slug
      * @return \Illuminate\Contracts\View\View|mixed
      */
-    public function view(CategoryRepositoryInterface $categories)
+    public function view(CategoryRepositoryInterface $categories, $slug)
     {
         /* @var CategoryInterface $category */
-        if (!$category = $categories->findBySlug($this->route->getParameter('slug'))) {
+        if (!$category = $categories->findBySlug($slug)) {
             abort(404);
         }
 

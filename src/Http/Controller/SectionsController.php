@@ -18,12 +18,13 @@ class SectionsController extends PublicController
      * View a single section.
      *
      * @param SectionRepositoryInterface $sections
+     * @param                            $slug
      * @return \Illuminate\Contracts\View\View|mixed
      */
-    public function view(SectionRepositoryInterface $sections)
+    public function view(SectionRepositoryInterface $sections, $slug)
     {
         /* @var SectionInterface $section */
-        if (!$section = $sections->findBySlug($this->route->getParameter('slug'))) {
+        if (!$section = $sections->findBySlug($slug)) {
             abort(404);
         }
 

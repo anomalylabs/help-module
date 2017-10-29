@@ -23,12 +23,13 @@ class AssignmentsController extends AdminController
      *
      * @param AssignmentTableBuilder    $table
      * @param StreamRepositoryInterface $streams
+     * @param                           $stream
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(AssignmentTableBuilder $table, StreamRepositoryInterface $streams)
+    public function index(AssignmentTableBuilder $table, StreamRepositoryInterface $streams, $stream)
     {
         /* @var StreamInterface $stream */
-        $stream = $streams->find($this->route->getParameter('stream'));
+        $stream = $streams->find($stream);
 
         return $table->setStream($stream)->render();
     }
@@ -82,15 +83,17 @@ class AssignmentsController extends AdminController
      *
      * @param AssignmentFormBuilder     $builder
      * @param StreamRepositoryInterface $streams
+     * @param                           $stream
+     * @param                           $assignment
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function edit(AssignmentFormBuilder $builder, StreamRepositoryInterface $streams)
+    public function edit(AssignmentFormBuilder $builder, StreamRepositoryInterface $streams, $stream, $assignment)
     {
         /* @var StreamInterface $stream */
-        $stream = $streams->find($this->route->getParameter('stream'));
+        $stream = $streams->find($stream);
 
         return $builder
             ->setStream($stream)
-            ->render($this->route->getParameter('assignment'));
+            ->render($assignment);
     }
 }

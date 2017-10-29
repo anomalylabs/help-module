@@ -60,10 +60,10 @@ class ArticlesController extends PublicController
      * @param ArticleRepositoryInterface $articles
      * @return \Illuminate\Contracts\View\View|mixed
      */
-    public function preview(ArticleRepositoryInterface $articles)
+    public function preview(ArticleRepositoryInterface $articles, $strId)
     {
         /* @var ArticleInterface $article */
-        if (!$article = $articles->findByStrId($this->route->getParameter('str_id'))) {
+        if (!$article = $articles->findByStrId($strId)) {
             abort(404);
         }
 
@@ -80,13 +80,16 @@ class ArticlesController extends PublicController
      * View a single article.
      *
      * @param ArticleRepositoryInterface $articles
+     * @param                            $category
+     * @param                            $section
+     * @param                            $slug
      * @return \Illuminate\Contracts\View\View|mixed
      */
-    public function view(ArticleRepositoryInterface $articles)
+    public function view(ArticleRepositoryInterface $articles, $category, $section, $slug)
     {
-        $path = $this->route->getParameter('category');
-        $path .= '/' . $this->route->getParameter('section');
-        $path .= '/' . $this->route->getParameter('slug');
+        $path = $category;
+        $path .= '/' . $section;
+        $path .= '/' . $slug;
 
         /* @var ArticleInterface $article */
         if (!$article = $articles->findByPath($path)) {
