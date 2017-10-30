@@ -39,12 +39,13 @@ class AssignmentsController extends AdminController
      *
      * @param FieldRepositoryInterface  $fields
      * @param StreamRepositoryInterface $streams
+     * @param                           $stream
      * @return \Illuminate\Contracts\View\View
      */
-    public function choose(FieldRepositoryInterface $fields, StreamRepositoryInterface $streams)
+    public function choose(FieldRepositoryInterface $fields, StreamRepositoryInterface $streams, $stream)
     {
         /* @var StreamInterface $stream */
-        $stream = $streams->find($this->route->getParameter('stream'));
+        $stream = $streams->find($stream);
 
         $fields = $fields
             ->findAllByNamespace('help')
@@ -60,17 +61,19 @@ class AssignmentsController extends AdminController
      * @param AssignmentFormBuilder     $builder
      * @param StreamRepositoryInterface $streams
      * @param FieldRepositoryInterface  $fields
+     * @param                           $stream
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function create(
         AssignmentFormBuilder $builder,
         StreamRepositoryInterface $streams,
-        FieldRepositoryInterface $fields
+        FieldRepositoryInterface $fields,
+        $stream
     ) {
         /* @var FieldInterface $field */
         /* @var StreamInterface $stream */
         $field  = $fields->find($this->request->get('field'));
-        $stream = $streams->find($this->route->getParameter('stream'));
+        $stream = $streams->find($stream);
 
         return $builder
             ->setField($field)
