@@ -4,6 +4,7 @@ use Anomaly\HelpModule\Article\Command\MakeArticleResponse;
 use Anomaly\HelpModule\Article\Contract\ArticleInterface;
 use Anomaly\HelpModule\Article\Contract\ArticleRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
+use Anomaly\Streams\Platform\Support\Authorizer;
 
 /**
  * Class ArticlesController
@@ -58,16 +59,14 @@ class ArticlesController extends PublicController
      * Preview a single article.
      *
      * @param ArticleRepositoryInterface $articles
+     * @param Authorizer $authorizer
+     * @param $strId
      * @return \Illuminate\Contracts\View\View|mixed
      */
-    public function preview(ArticleRepositoryInterface $articles, $strId)
+    public function preview(ArticleRepositoryInterface $articles, Authorizer $authorizer, $strId)
     {
         /* @var ArticleInterface $article */
         if (!$article = $articles->findByStrId($strId)) {
-            abort(404);
-        }
-
-        if ($article->isEnabled()) {
             abort(404);
         }
 

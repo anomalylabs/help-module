@@ -37,17 +37,19 @@ class MakeArticleResponse
     /**
      * Handle the command
      *
-     * @param ArticleLoader     $loader
-     * @param ArticleContent    $content
-     * @param ArticleResponse   $response
+     * @param ArticleLoader $loader
+     * @param ArticleContent $content
+     * @param ArticleResponse $response
      * @param ArticleBreadcrumb $breadcrumb
      */
     public function handle(
         ArticleLoader $loader,
         ArticleContent $content,
         ArticleResponse $response,
+        ArticleAuthorizer $authorizer,
         ArticleBreadcrumb $breadcrumb
     ) {
+        $authorizer->authorize($this->article);
         $breadcrumb->make($this->article);
         $loader->load($this->article);
         $content->make($this->article);
